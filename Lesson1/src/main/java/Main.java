@@ -3,6 +3,10 @@ public class Main {
         if (true) {
             System.out.println();
         }
+
+        System.out.println("asdasd!");
+
+
         System.out.println("asdasd!");
     }
 }
