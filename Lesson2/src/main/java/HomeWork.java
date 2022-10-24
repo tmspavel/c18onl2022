@@ -15,7 +15,10 @@ public class HomeWork {
         Итого: Должно быть 2 пул реквеста(features/TMS1 в develop и bugfix/TMS1 в develop)
 
         5)*(Со звездой) Создать ветку features/TMS2 от main, далее перейти в ветку develop и добавить
-        файл с название Cherry.java закомитить и запушить.
+        файл с название Cherry.java закомитить(название коммита дать jerry) и запушить. Выполнить комманду cherry pick
+        коммита jerry с изменениями в ветку features/TMS2. Сделать коммит и пуш ветки features/TMS2. Создать пул реквест
+        ветки features/TMS2 в ветку main
+        Итого: Должен быть 1 пул реквест из features/TMS2 в ветку main
 
 
          */
