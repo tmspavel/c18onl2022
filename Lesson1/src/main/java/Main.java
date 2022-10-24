@@ -1,7 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("asdasd");
-        System.out.println("asdasd");
+        if (true) {
+            System.out.println();
+        }
         System.out.println("asdasd!");
     }
 }
