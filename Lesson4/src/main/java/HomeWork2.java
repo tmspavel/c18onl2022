@@ -1,16 +1,20 @@
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
 public class HomeWork2 {
 
     public static void main(String[] args) {
         //Некоторые тесты для проверки задач. Можно также написать свои тесты.
-        printArray();
-        System.out.println(operation(1));
-        System.out.println(operation(0));
-        System.out.println(calculateCountOfOddElementsInMatrix(new int[]{1, 2, 3, 4, 5, 6}));
-        countDevs(103);
-        countDevs(11);
-        foobar(6);
-        foobar(10);
-        foobar(15);
+//        printArray();
+//        System.out.println(operation(1));
+//        System.out.println(operation(0));
+//        System.out.println(calculateCountOfOddElementsInMatrix(new int[]{1, 2, 3, 4, 5, 6}));
+//        countDevs(103);
+//        countDevs(12);
+//        foobar(6);
+//        foobar(10);
+//        foobar(15);
         printPrimeNumbers();
     }
 
@@ -23,7 +27,29 @@ public class HomeWork2 {
      * далее вывести массив на консоль
      */
     private static void printArray() {
-        // тут пишем логику
+        int length = getEnteredValueFromConsole();
+//        System.out.println(length);
+        int[] array = new int[length];
+        Random random = new Random();
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(100);
+        }
+        System.out.println(Arrays.toString(array));
+    }
+
+    private static int getEnteredValueFromConsole() {
+        int count = 0;
+        try (Scanner scanner = new Scanner(System.in)) {
+            do {
+                if (scanner.hasNextInt()) {
+                    count = scanner.nextInt();
+                } else {
+                    System.out.println("ошибка");
+                    scanner.next();
+                }
+            } while (count <= 0);
+        }
+        return count;
     }
 
     /**
@@ -34,8 +60,33 @@ public class HomeWork2 {
      * вернуть number после выполнения операций
      */
     public static int operation(int number) {
-        // тут пишем логику
-        return 0;
+        if (number > 0) {
+            return ++number;
+        } else if (number < 0) {
+            return number - 2;
+        } else {
+            return 10;
+        }
+//        return number;
+    }
+
+    private static void test(int number) {
+        if (number == 0) {//не корректная
+            return;
+        }
+        System.out.println("sfdsf");
+        System.out.println("sfdsf");
+        System.out.println("sfdsf");
+        System.out.println("sfdsf");
+    }
+
+    private static void test2(int number) {
+        if (number != 0) {
+            System.out.println("sfdsf");
+            System.out.println("sfdsf");
+            System.out.println("sfdsf");
+            System.out.println("sfdsf");
+        }
     }
 
     /**
@@ -44,8 +95,13 @@ public class HomeWork2 {
      * в котором это значение распечатается на консоль.
      */
     public static int calculateCountOfOddElementsInMatrix(int[] ints) {
-        // тут пишем логику
-        return 0;
+        int count = 0;
+        for (int i : ints) {
+            if (i % 2 != 0) {
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
@@ -58,7 +114,17 @@ public class HomeWork2 {
      * @param count - количество программистов
      */
     public static void countDevs(int count) {
-        // тут пишем логику
+//        1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
+//        т а а а в          в в  в   в  в                  в т
+        int c10 = count % 10;//34 % 10 = 4
+        int c100 = count % 100; //11 % 100 = 11
+        if (c10 == 1 && c100 != 11) {
+            System.out.println("программист");
+        } else if ((c10 >= 2 && c10 <= 4) && !(c100 >= 12 && c100 <= 14)) {//true && true
+            System.out.println("программиста");
+        } else {
+            System.out.println("программистов");
+        }
     }
 
     /**
@@ -68,7 +134,13 @@ public class HomeWork2 {
      * - если остаток от деления на 3 и 5 равен нулю 0 ,то вывести "foobar" (example of number - 15)
      */
     public static void foobar(int number) {
-        // тут пишем логику
+        if (number % 3 == 0) {
+            System.out.print("foo");
+        }
+        if (number % 5 == 0) {
+            System.out.print("bar");
+        }
+        System.out.println();
     }
 
     /**
@@ -77,6 +149,27 @@ public class HomeWork2 {
      * что такое просто число (https://www.webmath.ru/poleznoe/formules_18_5.php)
      */
     public static void printPrimeNumbers() {
-        // тут пишем логику
+//        2 3 5 7 11 ....
+        int count = 0;
+        long x1 = System.currentTimeMillis();
+        System.out.println(x1);
+        for (int i = 2; i < 1000000; i++) {
+            boolean isPrimeNumber = true;
+            for (int j = 2; j * j <= i; j++) {//
+                if (i % j == 0) {
+                    isPrimeNumber = false;
+                    break;
+                }
+            }
+            if (isPrimeNumber) {
+                count++;
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+        System.out.println(count);
+
+        long x2 = System.currentTimeMillis();
+        System.out.println(x2 - x1);
     }
 }

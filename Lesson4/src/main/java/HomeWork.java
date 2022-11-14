@@ -1,4 +1,75 @@
+import java.util.Random;
+import java.util.Scanner;
+
 public class HomeWork {
+
+    public static void main(String[] args) {
+        printLetters();
+
+        //2
+        Scanner scanner = new Scanner(System.in);
+        if (scanner.hasNextInt()) {
+            int value = scanner.nextInt();
+            if (value % 2 == 0) {
+                System.out.println("четное");
+            } else {
+                System.out.println("не четное");
+            }
+        } else {
+            System.out.println("ошибка!!");
+        }
+        //3
+
+        double a = scanner.nextDouble();
+        double b = scanner.nextDouble();
+        double c = scanner.nextDouble();
+        double absA = Math.abs(a);
+        double absB = Math.abs(b);
+        double absC = Math.abs(c);
+        System.out.println(Math.min(Math.min(absA, absB), absC));
+        //4
+
+        ////        [0;28800]
+        Random random = new Random();
+        int value = random.nextInt(28801);
+        display(value);
+
+        //5
+        System.out.println("    byte short char int long float double boolean");
+        System.out.println("byte  т    ня    я   ня   ня   ня    ня      х");
+        System.out.println("short я    т     я   ня   ня   ня    ня      х");
+        System.out.println("char  я    я     т   ня   ня   ня    ня      х");
+        System.out.println("int   я    я     я   т    ня   ня    ня      х");
+        System.out.println("long  я    я     я   я    т    ня    ня      х");
+        System.out.println("float я    я     я   я    я    т     ня      х");
+        System.out.println("double я   я     я   я    я    я     т       х");
+        System.out.println("boolean х  х     х   х    х    х     х       т");
+    }
+
+    private static void display(int value) {
+        int hour = value / 60 / 60;//0
+        String result = switch (hour) {
+            case 0 -> "менее часа";
+            case 1 -> "час";
+            case 2, 3, 4 -> "часа";
+            case 5, 6, 7, 8 -> "часов";
+            default -> "";
+        };
+        String temp = hour == 0 ? "" : "" + hour;
+        if (hour == 0) {
+            temp = "";
+        } else {
+            temp = "" + hour;
+        }
+        System.out.println("осталось " + temp + " " + result);
+        //hour = 0 - осталось мене часа
+    }
+
+    private static void printLetters() {
+        for (char i = 'a'; i <= 'z'; i++) {
+            System.out.print(i + " ");
+        }
+    }
 
 //Задачи:
 //1) Используя тип данных char и операцию инкремента вывести на консоль все буквы английского алфавита
@@ -41,3 +112,4 @@ public class HomeWork {
 //    т  - если преобразование тождественно.
 //    Внимание! используйте System.out.printLn
 }
+
