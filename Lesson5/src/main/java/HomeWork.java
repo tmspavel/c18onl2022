@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class HomeWork {
     public static void main(String[] args) {
         calculateSumOfDiagonalElements();
@@ -71,7 +73,28 @@ public class HomeWork {
      * заполнить рандомно 2-х мерный массив и посчитать сумму элементов на диагонали
      */
     public static void calculateSumOfDiagonalElements() {
-        //пишем логику и выводим результат используя System.out.println
+        int[][] mass = new int[3][3];
+        Random random = new Random();
+        for (int i = 0; i < mass.length; i++) {
+            for (int j = 0; j < mass.length; j++) {
+                mass[i][j] = random.nextInt(100);
+            }
+        }
+
+        int result = 0;
+//        for (int i = 0; i < mass.length; i++) {
+//            for (int j = 0; j < mass.length; j++) {
+//                if (i == j) {
+//                    result += mass[i][j];
+//                }
+//            }
+//        }
+
+        for (int i = 0; i < mass.length; i++) {
+            result += mass[i][i];
+        }
+
+        System.out.println(result);
     }
 
 
@@ -98,7 +121,19 @@ public class HomeWork {
      * Обратите внимание, что 21% 3 == 0 и 21% 7 = 0, но выводить надо не +-, а +
      */
     public static void printMatrix() {
-        // тут пишем логику
+        char[][] mass = new char[3][3];
+        for (int i = 0; i < mass.length; i++) {
+            for (int j = 0; j < mass.length; j++) {
+                //21
+                if (mass[i][j] % 3 == 0) {
+                    mass[i][j] = '+';
+                } else if (mass[i][j] % 7 == 0) {
+                    mass[i][j] = '-';
+                } else {
+                    mass[i][j] = '*';
+                }
+            }
+        }
     }
 
 //    Доп задача!
