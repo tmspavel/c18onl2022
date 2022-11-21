@@ -1,56 +1,100 @@
 package by.tms.model;
 
+import java.util.ArrayList;
+
 public class Person {
+
+    public static final String MY = "sdfdsf";
+
+    public static final ArrayList<String> myList;
+
+    static {
+//        temp = "123";
+        myList = new ArrayList<>();
+        myList.add("234");
+        myList.add("234");
+        myList.add("234");
+        myList.add("234");
+        System.out.println("static block");
+    }
+
+    //false
+    private String temp;
+//    {
+//        System.out.println("logic block");
+//        temp = "12223";
+//    }
+
     //характеристики(глобальные переменные) поля
-    public int age;//0
-    public boolean flag;//false
-    public String name;//null
-    public Address address;//null
+    int age;//0
+    private boolean flag = true;
+    private Address address;//null
+    private String name;//null
 
-//    public Person(int myAge, String myName) {
-//        age = myAge;//32 = 32
-//        name = myName;//
-//    }
-
-    public Person(int age, String name) {
-        this.age = age;
-        this.name = name;
+    public Person() {
+        System.out.println("конструктор без параметров");
     }
 
-    public Person(String name, Address address) {
+    public Person(int age, boolean flag, String name, Address address) {
+        System.out.println("конструктор с парамерами");
+        this.age = age;
+        this.flag = flag;
         this.name = name;
         this.address = address;
     }
 
-    public Person(Address address) {
-        this.address = address;
-    }
-
-    public Person(int age) {
-        this.age = age;
-    }
-
-    public Person() {// конструктор по умолчанию
-        System.out.println("Person");
-    }
-
-    public Person(int age, String name, Address address) {
-        this.age = age;
-        this.name = name;
-        this.address = address;
-    }
-
-    //    public void main(String[] args) {
-//        int age = 0;
-//    }
-//
     public void test(int value) {
+        System.out.println(MY);
         System.out.println(++value);
         age = 0;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public boolean isFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    void test() {
+        System.out.println("");
+    }
+
+    //    public Person() {
+//    }
+//
+//    public Person(int age, String name) {
+//        this(age, true, name, new Address("Минск"));
+//    }
+
     @Override
     public String toString() {
+        test(3);
         return "Person{" +
                 "age=" + age +
                 ", flag=" + flag +

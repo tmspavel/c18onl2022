@@ -3,8 +3,8 @@ package by.tms.model;
 public class Address {
 
     private String country;
-
     private String city;
+    protected String street;
 
     public Address(String city) {
         this.city = city;
