@@ -2,6 +2,10 @@ package stat;
 
 public class Main {
     public static void main(String[] args) {
+
+        System.out.println(CountInstanceClass.count);
+
+
         StaticTest staticTest = new StaticTest();//1 объект
         System.out.println(StaticTest.price);
 

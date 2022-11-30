@@ -8,11 +8,22 @@ import lombok.Setter;
 @AllArgsConstructor
 public class External {
     private int value;
+    private Inner inner;
+
+    public External(int value) {
+        this.value = value;
+        this.inner = new Inner(2);
+    }
+
+    void test() {
+        System.out.println(inner);
+    }
 
     @Getter
     @Setter
     @AllArgsConstructor
-    static class Inner {
+    public static class Inner {
+        public static final String TEMP = "";
         private int value;
     }
 }
