@@ -30,15 +30,20 @@ public class Book implements Cloneable {
     }
 
     @Override
-    protected Object clone() {
-//логика
-        if (4 > 5) {
-            //логика
-        } else {
-            throw new NullPointerException();
-        }
-        return null;
-
-//        return super.clone();
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
+
+    //    @Override
+//    protected Object clone() {
+////логика
+//        if (4 > 5) {
+//            //логика
+//        } else {
+//            throw new NullPointerException();
+//        }
+//        return null;
+//
+////        return super.clone();
+//    }
 }

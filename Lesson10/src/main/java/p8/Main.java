@@ -5,7 +5,12 @@ public class Main {
         Book book = null;//new Book("Война и мир", "Толстой", 1863);
         System.out.println(book);
 //        try {
-        Object clone = book.clone();
+        Object clone = null;
+        try {
+            clone = book.clone();
+        } catch (CloneNotSupportedException exception) {
+            exception.printStackTrace();
+        }
         System.out.println(clone);
         System.out.println(book == clone);
         System.out.println(book.equals(clone));
