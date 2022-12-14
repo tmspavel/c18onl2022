@@ -52,7 +52,7 @@ public class Practice5 {
         System.out.println(s3.toLowerCase());//hello
         System.out.println(s3.toUpperCase());//HELLO
 
-        s3 = "heLLo\\\\ can you hear me. I was wondering . ..".replace("\\\\", "!");
+        String[] s333 = "heLLo\\\\ can you hear me. I was wondering . ..".split("\\\\\\\\");
 
         String[] strings = s3.split("!");
 

@@ -8,7 +8,7 @@ import java.util.List;
 import static com.home.util.Constants.MIN_LOGIN_LENGTH;
 import static com.home.util.Constants.PASSWORD_LENGTH;
 
-public class HomeWork12 {
+public class Main {
 
     public static void main(String[] args) {
         System.out.println("Длина поля логин установлена в - " + MIN_LOGIN_LENGTH);
