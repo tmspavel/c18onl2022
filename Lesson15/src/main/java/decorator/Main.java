@@ -9,10 +9,13 @@ public class Main {
     public static void main(String[] args) {
 
         Bike standardBike = new StandardBike();
+
         System.out.println("Скорость стандартного мотоцикла - " + standardBike.getSpeed());
         System.out.println("Стандартный мотоцикл может принимать вес - " + standardBike.getHisWeight());
 
         Bike sportBike = new SportBike(standardBike);
+
+//        new SportBike(new StandardBike());
         System.out.println("Спорт байк " + sportBike.getSpeed());
     }
 }

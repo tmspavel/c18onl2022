@@ -21,7 +21,8 @@ public class TmsPrintWriterFileWriter implements TmsWriter {
 
     @Override
     public void append(String text) throws FileNotFoundException {
-        try (PrintWriter writer = new PrintWriter(new FileOutputStream(outputFilePath, true))) {
+        FileOutputStream out = new FileOutputStream(outputFilePath, true);
+        try (PrintWriter writer = new PrintWriter(out)) {
             writer.append(text);
         }
     }
