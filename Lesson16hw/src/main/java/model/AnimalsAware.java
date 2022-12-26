@@ -1,4 +1,4 @@
-package task2.model;
+package model;
 
 public interface AnimalsAware {
     void say();

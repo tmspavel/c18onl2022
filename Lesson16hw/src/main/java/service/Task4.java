@@ -1,4 +1,4 @@
-package task4.service;
+package service;
 
 import static task4.model.Calculator.*;
 

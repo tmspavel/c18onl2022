@@ -1,4 +1,4 @@
-package task3.service;
+package service;
 
 import task3.model.MinMax;
 

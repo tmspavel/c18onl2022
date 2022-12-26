@@ -1,4 +1,4 @@
-package task2.service;
+package service;
 
 import task2.model.Animals;
 import task2.model.Generic;
