@@ -1,5 +1,7 @@
 package p5;
 
+import utils.CollectionUtils;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -10,9 +12,60 @@ import java.util.stream.Collectors;
 public class Practice {
     public static void main(String[] args) {
         {
+
+            {
+                List<String> products = new ArrayList<>();
+                products.add("Молоко");
+                products.add("Молоко");
+                products.add("Шоколад");
+                products.add("Шоколад");
+                String obj = products.get(3);// O(1)
+                System.out.println(products);
+            }
+            {
+                Set<String> products = new LinkedHashSet<>();
+                products.add("Молоко");
+//                products.add("Молоко");
+                products.add("Шоколад");
+//                products.add("Шоколад");
+                products.add("Хлеб");
+
+                if (products.contains("Хлеб")) {
+                    //логика
+                } else {
+
+                }
+
+                test();
+
+                ArrayList<String> strings = new ArrayList<>(products);
+
+                if (products != null && !products.isEmpty()) {
+                    //products
+                }
+
+                if (CollectionUtils.isNotEmpty(products)) {
+                    //выполню логику
+                }
+
+
+                for (String product : products) {
+                    System.out.println(product);
+                }
+                System.out.println(products);
+
+                System.out.println(new HashSet<>(products));
+            }
+
+
+//            Map<String, Integer>
             Set<Integer> objects = new HashSet<>();
-            objects.add(new Integer(2));
-            objects.add(new Integer(2));
+            objects.add(2);
+            objects.add(23);
+//            Integer b = 4;
+//            int value = b;
+//            objects.add("23423");
+
             objects.add(4232323);
             objects.add(null);
             objects.add(1);
@@ -93,6 +146,8 @@ public class Practice {
         arrayDeque.add(20);
         arrayDeque.addLast(11);
         System.out.println(arrayDeque);
+        //FIFO - first input first output (магазинная Очередь)
+        //LIFO - last input first output (стек)
 
 
         List<String> objects = new LinkedList<>();
@@ -129,6 +184,15 @@ public class Practice {
         arrayList.stream()
                 .filter(s -> !s.equals("222"))
                 .forEach(System.out::println);
+    }
+
+    private static void test() {
+        int a = 0;//первый элемент то последний уйдешь
+        int a1 = 0;
+        int a2 = 0;
+        int a3 = 0;
+        int a100 = 0;//последний пришел то первым уйду.
+//        LIFO(стек)
     }
 
     private static String create() {
