@@ -1,4 +1,4 @@
-package model;
+package task3.model;
 
 import lombok.Getter;
 import lombok.NonNull;

@@ -1,7 +1,4 @@
-package service;
-
-import task2.model.Animals;
-import task2.model.Generic;
+package task2.model;
 
 public class Task2 {
 //    * 2) Обобщенный класс с тремя параметрами
