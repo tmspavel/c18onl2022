@@ -4,7 +4,7 @@ import lombok.ToString;
 
 @ToString
 class Key implements Comparable<Key> {
-    String key;
+    final String key;
 
     Key(String key) {
         this.key = key;
