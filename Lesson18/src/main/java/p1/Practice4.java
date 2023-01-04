@@ -1,5 +1,7 @@
 package p1;
 
+import p3.Person;
+
 public class Practice4 {
     /*
     Обобщенный функциональный интерфейс
@@ -10,7 +12,7 @@ public class Practice4 {
         Operation<Object> operation2 = (x, y) -> x.toString() + y;
 
         System.out.println(operation1.calculate(20, 10)); //30
-        System.out.println(operation2.calculate("20", "10")); //2010
+        System.out.println(operation2.calculate("20", new Person())); //2010
     }
 
     @FunctionalInterface

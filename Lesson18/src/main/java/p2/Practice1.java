@@ -34,6 +34,8 @@ public class Practice1 {
     }
 
     public static void main(String[] args) {
+//        Predicate<Integer> predicate = n -> n > 5;
+
         List<String> args1 = List.of(args);
         args1.add("12");
         System.out.println(args1);
@@ -54,14 +56,15 @@ public class Practice1 {
         //проверяет соблюдение некоторого условия. Если оно соблюдается, то возвращается значение true.
         // В качестве параметра лямбда-выражение принимает объект типа T
         Predicate<Integer> isPositive = t -> t > 0;
+//        Predicate<Person> isPositive = t -> t.getAge() > 18 && t.getAge() < 27;
 
         System.out.println(isPositive.test(5)); // true
         System.out.println(isPositive.test(-7)); // false
 
         //Consumer(что то принимает но ничего не возвращает)
         //выполняет некоторое действие над объектом типа T, при этом ничего не возвращая:
-        Consumer<Integer> printer = x -> System.out.printf("%d долларов \n", x);
-        printer.accept(600); // 600 долларов
+        Consumer<List<Integer>> printer = x -> System.out.printf("%d долларов \n", x);
+        printer.accept(Arrays.asList(600, 500)); // 600 долларов
 
         //Supplier(ничего не принимает только возвращает)
         //не принимает никаких аргументов, но должен возвращать объект типа T:

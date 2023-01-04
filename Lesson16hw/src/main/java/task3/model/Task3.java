@@ -1,5 +1,7 @@
 package task3.model;
 
+import java.util.Comparator;
+
 public class Task3 {
 
 //     * 3)Написать обобщенный класс MinMax, который содержит методы для нахождения минимального и максимального элемента массива.
@@ -9,17 +11,25 @@ public class Task3 {
     public static void main(String[] args) {
         Double[] numbersDouble = {1.2, 2.2, 89.2, 19032.23, 23.22323};
         Integer[] numbersInteger = {123, 32, 23145432, 231};
-        MinMax<?> minMaxDouble = new MinMax<>(numbersDouble);
-        MinMax<Integer> minMaxInteger = new MinMax<>(numbersInteger);
 
-        MinMax<Integer> minMaxInteger2 = createMinMax(numbersInteger);
-        printMinAndMaxValue(minMaxInteger2);
-        getInfo(minMaxInteger2);
+        Comparator<Integer> compare = (x, y) -> (x < y) ? -1 : ((x == y) ? 0 : 1);
+        MinMax<Integer> minMaxInteger = new MinMax<>(numbersInteger, compare);
+        System.out.println(minMaxInteger.getMax());
 
-        printMinAndMaxValue(minMaxDouble);
-        getInfo(minMaxDouble);
-        printMinAndMaxValue(minMaxInteger);
-        getInfo(minMaxInteger);
+//        Arrays.stream(numbersInteger).max(Integer::compare).get();
+//
+//        MinMax<?> minMaxDouble = new MinMax<>(numbersDouble);
+//
+//        MinMax<Integer> minMaxInteger = new MinMax<>(numbersInteger, Integer::compare);
+//
+//        MinMax<Integer> minMaxInteger2 = createMinMax(numbersInteger);
+//        printMinAndMaxValue(minMaxInteger2);
+//        getInfo(minMaxInteger2);
+//
+//        printMinAndMaxValue(minMaxDouble);
+//        getInfo(minMaxDouble);
+//        printMinAndMaxValue(minMaxInteger);
+//        getInfo(minMaxInteger);
     }
 
     public static <T extends Number> MinMax<T> createMinMax(T[] array) {

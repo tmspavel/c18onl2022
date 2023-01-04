@@ -19,17 +19,18 @@ public class Practice {
         Вся основная функциональность данного API сосредоточена в пакете java.util.stream.
          */
         List<String> list = new ArrayList<>();
-        list.add("123");
-        for (String s : list) {
-            System.out.println(s);
-        }
+        list.add("123 34534");
+        list.add("123 ggg");
+        list.add("");
+        list.add(" ");
+        list.add("55");
         Stream<String> stream = list.stream();
-        stream.filter(s -> !s.isBlank());
+        stream = stream.filter(str -> !str.isBlank());
+        stream.forEach(System.out::println);
 
-        stream.forEach(Practice::extracted);
-
-        list.stream()
-                .forEach(System.out::println);
+        List<String> collect = list.stream()
+                .filter(s -> !s.isBlank())
+                .collect(Collectors.toList());
 
         /*
         Операции:

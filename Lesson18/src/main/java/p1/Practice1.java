@@ -25,7 +25,7 @@ public class Practice1 {
             return a.getAge() > b;
         };
 
-        BiPredicate<Person, Integer> filenameFilter1 = (a, b) -> a.getAge() > b;
+        BiPredicate<Person, Integer> filenameFilter1 = (person, age) -> person.getAge() > age;
 
 
         boolean test1 = filenameFilter.test(new Person("sdf", 23, "sdf"), 12);
@@ -42,13 +42,13 @@ public class Practice1 {
          только один единственный метод без реализации.
          */
 
-        Operation operation1 = new Operation() {
-            @Override
-            public int calculate(int a, int b) {
-                return a * b;
-            }
-        };
-        operation1.calculate(12, 12);
+//        int b = 1;
+
+        Operation operation1 = (a, b) -> a * b;
+        System.out.println(operation1.calculate(12, 12));
+        System.out.println(operation1.calculate(1, 2));
+        Operation operation22 = (a, b) -> a - b;
+        System.out.println(operation22.calculate(1, 2));
 
         Operation m1 = (a, b) -> {
             int i = a + b;

@@ -9,6 +9,9 @@ public class Practice8 {
 
         int b = action(2).execute(8, 2);
         System.out.println(b);          // 6
+
+        int b1 = action(6).execute(8, 2);
+        System.out.println(b1);          // 0
     }
 
     private static Operation action(int number) {

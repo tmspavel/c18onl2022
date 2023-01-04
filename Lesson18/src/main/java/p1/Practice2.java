@@ -6,7 +6,7 @@ public class Practice2 {
         Терминальные лямбда-выражения
         терминальные лямбды, которые не возвращают никакого значения. Например:
          */
-        Printable printer = s -> System.out.println(s);
+        Printable printer = str -> System.out.println(str);
         printer.print("Hello Java!");
     }
 

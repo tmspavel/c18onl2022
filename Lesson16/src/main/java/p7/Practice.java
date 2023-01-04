@@ -2,8 +2,7 @@ package p7;
 
 import p4.Person;
 
-import java.util.Arrays;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * https://habr.com/ru/post/421179/
@@ -37,18 +36,18 @@ public class Practice {
         Person[] people = {new Person(1L, "Nik", 45), new Person(1L, "Ivan", 12)};
 //        Arrays.sort(people);
 
-        TreeSet<Person> sortedSet = new TreeSet<>();
-        sortedSet.add(new Person(1L, "Nik", 45));//
-        sortedSet.add(new Person(1L, "Nik", 45));//
-        sortedSet.add(new Person(1L, "Nik", 45));
-        sortedSet.add(new Person(1L, "Nik", 45));
-        Person nik = new Person(1L, "Nik", 45);
-        sortedSet.add(nik);
-        sortedSet.add(new Person(1L, "Ivan", 12));
-        sortedSet.add(new Person(1L, "Ivan", 12));
-        sortedSet.add(new Person(1L, "Ivan", 12));
-        sortedSet.add(new Person(1L, "Ivan", 12));
-        System.out.println(sortedSet);
+//        TreeSet<Person> sortedSet = new TreeSet<>();
+//        sortedSet.add(new Person(1L, "Nik", 45));//
+//        sortedSet.add(new Person(1L, "Nik", 45));//
+//        sortedSet.add(new Person(1L, "Nik", 45));
+//        sortedSet.add(new Person(1L, "Nik", 45));
+//        Person nik = new Person(1L, "Nik", 45);
+//        sortedSet.add(nik);
+//        sortedSet.add(new Person(1L, "Ivan", 12));
+//        sortedSet.add(new Person(1L, "Ivan", 12));
+//        sortedSet.add(new Person(1L, "Ivan", 12));
+//        sortedSet.add(new Person(1L, "Ivan", 12));
+//        System.out.println(sortedSet);
 
 
 //        Arrays.sort(people
@@ -66,21 +65,30 @@ public class Practice {
 
 
         Person[] people1 = {new Person(1L, "Nik", 45), new Person(1L, "Ivan", 12)};
-        Arrays.sort(people1);
-        for (Person person : people1) {
-            System.out.println(person);
-        }
+//        Arrays.sort(people1);
+//        for (Person person : people1) {
+//            System.out.println(person);
+//        }
 
         Arrays.stream(people)
-                .sorted()
+                .sorted(Comparator.comparing(Person::getAge))
                 .forEach(System.out::println);
 //
-//        Collections.sort(arrayList, new Comparator<String>() {
-//            @Override
-//            public int compare(String o1, String o2) {
-//                return o2.compareTo(o1);
-//            }
-//        });
+        List<String> arrayList = new ArrayList<>();
+
+        Map<String, Person> stringStringTreeMap = new TreeMap<>();
+        stringStringTreeMap.put("5", new Person(1L, "sdfsdf", 3));
+        stringStringTreeMap.put("2", new Person(2L, "hhh", 5));
+        stringStringTreeMap.put("1", new Person(3L, "hhh", 5));
+        stringStringTreeMap.put("8", new Person(4L, "hhh", 5));
+
+        System.out.println(stringStringTreeMap);
+
+
+//        int compare(T o1, T o2);
+        Comparator<String> compareTo = String::compareTo;
+        Collections.sort(arrayList, compareTo);
+
 //        System.out.println(arrayList);
 //
 //        System.out.println();
@@ -92,5 +100,9 @@ public class Practice {
 ////            keyIntegerEntry.getValue();
 //            System.out.println(keyIntegerEntry.getKey().key + " " + keyIntegerEntry.getValue());
 //        }
+    }
+
+    private static void test(List<String> arrayList) {
+
     }
 }

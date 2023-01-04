@@ -20,25 +20,27 @@ public class Practice6 {
 
         int[] nums = {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5};
 //        ExpressionHelper exprHelper = new ExpressionHelper();
-        System.out.println(sum(nums, Practice6::isEven));
+        System.out.println(sum(nums, n -> n > 0));
 
-        Expression expr = ExpressionHelper::isPositive;
-        System.out.println(sum(nums, expr));
+//        Expression expr = ExpressionHelper::isPositive;
+//        System.out.println(sum(nums, expr));
     }
 
     private static void test(Calc calc) {
         calc.value = 12;
     }
 
-    private static boolean isEven(int n) {
+    private static boolean isEven(int n, String value) {
         return n % 2 == 0;
     }
 
+    //n -> n>0
+    //n -> n<0
     private static int sum(int[] numbers, Expression func) {
         int result = 0;
-        for (int i : numbers) {
-            if (func.isEqual(i)) {
-                result += i;
+        for (int n : numbers) {
+            if (func.isEqual(n)) {
+                result += n;
             }
         }
         return result;
