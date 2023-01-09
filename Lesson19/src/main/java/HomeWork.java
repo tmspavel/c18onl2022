@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class HomeWork {
     /**
      * Все задачи необходимо решать используя Stream API и выводить результат на консоль !!!
@@ -65,5 +67,12 @@ public class HomeWork {
      *              OK {Семёнов Семён Семёнович}
      *
      */
+
+    public static void main(String[] args) {
+
+        List<Library> libraries = (List<Library>) LibraryCreator.createLibraries(LibraryCreator.Type.LIBRARY);
+        List<Book> books = (List<Book>) LibraryCreator.createLibraries(LibraryCreator.Type.BOOK);
+
+    }
 
 }
