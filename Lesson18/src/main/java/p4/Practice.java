@@ -1,5 +1,6 @@
 package p4;
 
+import p3.Address;
 import p3.Person;
 
 import java.util.*;
@@ -9,23 +10,73 @@ import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.toMap;
 
-public class Practice {
+public class Practice extends Person {
 
+    public static final String TEMP = "c:\\temp";
+    public static final List<String> PASSENGER_TYPES = List.of("ADT", "CHD", "INF");
+    public static final Person PERSON = new Person();
 
     public static void main(String[] args) {
+
+        List<String> objects = new ArrayList<>();
+        Person person3 = Person.builder()
+                .address(new Address("sdfds"))
+                .build();
+        Person person2 = new Person(new Address("address"));
+        person2.setAge(12);
+        List<String> stringList2 = new ArrayList<>();
+        stringList2.add("33");
+        person2.setStringList(stringList2);
+        person2.getInfo();
+
+
+        PASSENGER_TYPES.add("12");
+        PASSENGER_TYPES.add("13");
+        PASSENGER_TYPES.add("14");
+        String type = "ADT";
+        if (PASSENGER_TYPES.contains(type)) {
+            System.out.println("");
+        }
+
+        //"02-02-2023T12:23" - //"02-02-2023T15:23"
+        //MSQ - "+3" O(1)
+        //DME - "+3"
+
         List<String> list = new ArrayList<>();
+        list.add("sdf");
+        list.add("sdf");
+        list.add("sdf");
+        List<String> stringList1 = Arrays.asList("sd", "sd");
+        stringList1.add("2323");
+
+        List<String> stringList = List.of("1", "2");//new ArrayList<>();
+//        stringList.add("1");
+        Map<String, List<Person>> objectObjectHashMap = new HashMap<>();
+//        "Алекс" -  "1, 2 ,3"
+//        objectObjectHashMap.put(stringList, "Ivan");
+
+        Map<String, String> map = new HashMap<>();
+        map.put("MSQ", "+3");
+        map.put("DME", "+3");
+        System.out.println(map);
+        map.remove("MSQ");
+        map.put("MSQ", "+7");
+        System.out.println(map);
+
+
         list.add("123");
         for (String s : list) {
             System.out.println(s);
         }
-        list.stream().forEach(str -> {
-                    if (str.equals("123")) {
-                        System.out.println(str);
-                    } else {
-                        System.out.println("Ничего");
-                    }
-                }
-        );
+        list.stream()
+                .forEach(str -> {
+                            if (str.equals("123")) {
+                                System.out.println(str);
+                            } else {
+                                System.out.println("Ничего");
+                            }
+                        }
+                );
 
         list.stream().forEach(System.out::println);
 

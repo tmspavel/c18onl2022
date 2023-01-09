@@ -1,9 +1,6 @@
 package p3;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +10,7 @@ import java.util.List;
 @Setter
 @ToString
 @NoArgsConstructor
+@Builder
 public class Person {
     public static final String MALE = "male";
     public static final String FEMALE = "female";
@@ -21,11 +19,22 @@ public class Person {
     private Integer age;
     private String sex = FEMALE;
     private List<String> stringList;
+    private Address address;
 
     public Person(String name, Integer age, String sex) {
         this.name = name;
         this.age = age;
         this.sex = sex;
+    }
+
+    public Person(Address address) {
+        this.address = address;
+    }
+
+    public String getInfo() {
+        stringList.add("sdf");
+        System.out.println(stringList);
+        return address.getName() + "sdfsdf";
     }
 
     public List<String> getStringList() {
