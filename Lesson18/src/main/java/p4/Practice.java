@@ -19,9 +19,9 @@ public class Practice extends Person {
     public static void main(String[] args) {
 
         List<String> objects = new ArrayList<>();
-        Person person3 = Person.builder()
-                .address(new Address("sdfds"))
-                .build();
+//        Person person3 = Person.builder()
+//                .address(new Address("sdfds"))
+//                .build();
         Person person2 = new Person(new Address("address"));
         person2.setAge(12);
         List<String> stringList2 = new ArrayList<>();

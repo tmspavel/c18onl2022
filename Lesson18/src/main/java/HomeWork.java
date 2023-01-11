@@ -1,6 +1,10 @@
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
+import java.time.temporal.TemporalAdjusters;
+import java.util.Locale;
 
 //https://www.baeldung.com/java-calculate-factorial#:~:text=Factorial%20Using%20a%20for%20Loop,for%20numbers%20up%20to%2020.
 public class HomeWork {
@@ -22,26 +26,32 @@ public class HomeWork {
      * нахождения факториала числа.
      */
     public static void main(String[] args) {
-//        String date = "2023.01.02";
-//        LocalDate localDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy.MM.dd"));
-//        System.out.println(localDate.getDayOfWeek());
 
-        int dayOfWeek = 3; // Monday
-        Calendar now = Calendar.getInstance();
-        int weekday = now.get(Calendar.DAY_OF_WEEK);
-
-// calculate how much to add
-        int days = dayOfWeek - weekday;
-        if (days <= 0) {
-            days += 7;
+        //1
+        {
+            String date = "2023-01-02T05:23:11";
+            LocalDateTime localDate = LocalDateTime.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"));
+            System.out.println(localDate);
+            System.out.println(localDate.getDayOfWeek());
         }
-        now.add(Calendar.DAY_OF_YEAR, days);
 
-// now is the date you want
-        Date date = now.getTime();
-        String dateStr = new SimpleDateFormat("E dd.MM.yyyy").format(date);
-        System.out.println("dateStr = " + dateStr);
+        //2
+        {
+            LocalDate date = LocalDate.now();
+            System.out.println("\nСледующий вторник: " + date.with(TemporalAdjusters.next(DayOfWeek.TUESDAY)));
+            System.out.println("Предыдущий вторник: " + date.with(TemporalAdjusters.previous(DayOfWeek.TUESDAY)) + "\n");
+        }
+
+        //3
+        findDay(3, 29, 1991);
     }
 
+    public static String findDay(int month, int day, int year) {
+        LocalDate localDate = LocalDate.of(year, month, day);
+        DayOfWeek dayOfWeek = localDate.getDayOfWeek();
+        System.out.println(dayOfWeek);
+        System.out.println(dayOfWeek.getDisplayName(TextStyle.FULL, new Locale("RU")));
+        return dayOfWeek.toString();
+    }
 
 }

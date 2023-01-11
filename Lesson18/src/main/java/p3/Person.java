@@ -1,6 +1,9 @@
 package p3;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +13,6 @@ import java.util.List;
 @Setter
 @ToString
 @NoArgsConstructor
-@Builder
 public class Person {
     public static final String MALE = "male";
     public static final String FEMALE = "female";
