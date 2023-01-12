@@ -1,22 +1,21 @@
 package hw;
 
-import java.util.Scanner;
-
 public class Service {
-    private final Scanner scanner = new Scanner(System.in).useDelimiter("\n");
 
-    public Object getValue() {
-        switch (scanner.nextInt()) {
+    public Object getValue(int value, Data data, String message) {
+        switch (value) {
             case 1 -> {
                 IValue<String> result = this::reverse;
-                return result.getValue(scanner.next());
+                data.callBack().execute(message);
+                return result.getValue((String) data.supplier().get());
             }
             case 2 -> {
                 IValue<Integer> result = this::factorial;
-                return result.getValue(scanner.nextInt());
+                data.callBack().execute(message);
+                return result.getValue((Integer) data.supplier().get());
             }
-            default -> throw new IllegalArgumentException("Вы ввели не правильную цифру");
         }
+        return null;
     }
 
     private String reverse(String str) {
