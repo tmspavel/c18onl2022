@@ -18,12 +18,18 @@ public class Main {
         reader1.setBooks(Arrays.asList(book1));
         library.getReaders().add(reader1);
 
-
         //Получить список всех книг библиотеки, отсортированных по году издания.
         doWithoutLambda(library.getBooks());
-        List list = library.getBooks().stream()
+        library.getBooks().stream()
+                .filter(book -> book.getIssueYear() > 2010)
                 .sorted(Comparator.comparing(Book::getIssueYear))
-                .collect(Collectors.toList());
+//                .flatMap(book -> book.getPages().stream())
+//                .filter(page -> page > 10 && page < 20)
+                .forEach(System.out::println);
+
+
+//                .map(book -> book.getName())
+//                .collect(Collectors.toList());
 
         //Требуется создать список рассылки (объекты типа EmailAddress) из адресов всех читателей библиотеки. При этом флаг согласия на рассылку учитывать не будем: библиотека закрывается, так что хотим оповестить всех.
         {

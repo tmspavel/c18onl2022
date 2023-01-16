@@ -13,4 +13,9 @@ public class Book {
     private String author; //Автор
     private String name;    //Название
     private Integer issueYear; //Год издания
+//    private List<Integer> pages;
+
+    public Integer getIssueYear() {
+        return issueYear;
+    }
 }
