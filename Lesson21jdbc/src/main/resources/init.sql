@@ -9,7 +9,7 @@ CREATE SCHEMA IF NOT EXISTS students_db;
 --------------------------------------------------------
 DROP TABLE IF EXISTS students_db.students;
 CREATE TABLE IF NOT EXISTS students_db.students (
-                                                    id BIGSERIAL PRIMARY KEY NOT NULL,
+                                                    id serial primary key,
                                                     name VARCHAR(45) NOT NULL,
                                                     surname VARCHAR(100) NOT NULL,
                                                     course INT NOT NULL
