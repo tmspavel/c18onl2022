@@ -87,5 +87,6 @@
         <module>Lesson19hw</module>
         <module>Lesson20hw</module>
         <module>Lesson21jdbc</module>
+        <module>Lesson22</module>
     </modules>
 </project>
