@@ -10,7 +10,7 @@ public class DbUtils {
     }
 
     //127.0.0.1
-    private static final String DB_URL = "jdbc:postgresql://localhost:5432/student_db";
+    private static final String DB_URL = "jdbc:postgresql://localhost:5432/students_db";
     private static final String DB_USERNAME = "postgres";
     private static final String DB_PASSWORD = "root";
 
