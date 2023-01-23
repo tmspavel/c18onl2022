@@ -6,7 +6,11 @@ import com.tms.store.Store;
 import com.tms.storev2.ConsumerV2;
 import com.tms.storev2.ProducerV2;
 import com.tms.storev2.StoreV2;
-import com.tms.threads.*;
+import com.tms.threads.CountThread;
+import com.tms.threads.MyInfiniteRunnable;
+import com.tms.threads.MyInfiniteThread;
+import com.tms.threads.MyRunnable;
+import com.tms.threads.MyThread;
 
 public class Main {
     public static void main(String[] args) {
@@ -36,13 +40,13 @@ public class Main {
 
 //        infiniteThreadExample();
 
-        raceConditionExample();
+//        raceConditionExample();
 
 //        daemonExample();
 
 //        producerConsumerExample();
 
-//        producerConsumerExampleV2();
+        producerConsumerExampleV2();
     }
 
 

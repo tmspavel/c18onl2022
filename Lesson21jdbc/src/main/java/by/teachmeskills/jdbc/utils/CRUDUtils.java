@@ -1,15 +1,20 @@
 package by.teachmeskills.jdbc.utils;
 
 import by.teachmeskills.jdbc.model.Student;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CRUDUtils {
 
-    private static final String GET_ALL_STUDENTS_QUERY = "SELECT * FROM students";
-    private static final String INSERT_STUDENT_QUERY = "INSERT INTO students(name, surname, course) VALUES(?, ?, ?);";
+    private static final String GET_ALL_STUDENTS_QUERY = "SELECT * FROM students where \"date\" > '2020-02-21'";
+    private static final String INSERT_STUDENT_QUERY = "INSERT INTO students(name, surname, course, date_time) VALUES(?, ?, ?, ?);";
     private static final String UPDATE_STUDENT_QUERY = "UPDATE students SET course = ? WHERE id = ?;";
     private static final String DELETE_STUDENT_QUERY = "DELETE FROM students WHERE id = ?";
 
@@ -41,10 +46,10 @@ public class CRUDUtils {
             preparedStatement.setString(1, student.getName());
             preparedStatement.setString(2, student.getSurname());
             preparedStatement.setInt(3, student.getCourse());
+            Timestamp date = Timestamp.from(Instant.now());
+            preparedStatement.setTimestamp(4, date);
             preparedStatement.executeUpdate();
-
             updatedStudents = getAllStudents();
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

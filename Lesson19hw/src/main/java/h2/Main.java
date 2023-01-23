@@ -1,11 +1,36 @@
 package h2;
 
-import java.util.*;
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.mapping;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.*;
-
 public class Main {
+
+    private final static Random RANDOM = new Random();
+
+    private static List<Book> getRandomReaderBooks(Library library) {
+        int randomBooksForReader = RANDOM.nextInt(library.getBooks().size() - 1);
+        int countLibraryBooks = library.getBooks().size();
+        int[] randomIndexes = RANDOM.ints(randomBooksForReader, 0, countLibraryBooks - 1).toArray();
+        List<Book> result = new ArrayList<>();
+        for (int randomIndex : randomIndexes) {
+            result.add(library.getBooks().get(randomIndex));
+        }
+        return result;
+    }
+
     //https://skillbox.ru/media/code/java-stream-api-kopilka-retseptov/
     public static void main(String[] args) {
         Library library = new Library();
@@ -18,15 +43,18 @@ public class Main {
         reader1.setBooks(Arrays.asList(book1));
         library.getReaders().add(reader1);
 
+        library.getReaders().stream()
+               .peek(reader -> reader.setBooks(getRandomReaderBooks(library)))
+               .forEach(System.out::println);
+
         //Получить список всех книг библиотеки, отсортированных по году издания.
         doWithoutLambda(library.getBooks());
         library.getBooks().stream()
-                .filter(book -> book.getIssueYear() > 2010)
-                .sorted(Comparator.comparing(Book::getIssueYear))
+               .filter(book -> book.getIssueYear() > 2010)
+               .sorted(Comparator.comparing(Book::getIssueYear))
 //                .flatMap(book -> book.getPages().stream())
 //                .filter(page -> page > 10 && page < 20)
-                .forEach(System.out::println);
-
+               .forEach(System.out::println);
 
 //                .map(book -> book.getName())
 //                .collect(Collectors.toList());
@@ -40,26 +68,27 @@ public class Main {
         }
         {
             List<EmailAddress> addresses = library.getReaders().stream()
-                    .map(Reader::getEmail)
-                    .map(EmailAddress::new)
-                    .collect(Collectors.toList());
+                                                  .map(Reader::getEmail)
+                                                  .map(EmailAddress::new)
+                                                  .collect(Collectors.toList());
         }
 
         //Снова нужно получить список рассылки. Но на этот раз включаем в него только адреса читателей, которые согласились на рассылку. Дополнительно нужно проверить, что читатель взял из библиотеки больше одной книги.
         {
             List<EmailAddress> addresses = new ArrayList<>();
             for (Reader reader : library.getReaders()) {
-                if (reader.getBooks().size() > 1 && reader.isSubscriber())
+                if (reader.getBooks().size() > 1 && reader.isSubscriber()) {
                     addresses.add(new EmailAddress(reader.getEmail()));
+                }
             }
         }
         {
             List<EmailAddress> addresses = library.getReaders().stream()
-                    .filter(Reader::isSubscriber)
-                    .filter(reader -> reader.getBooks().size() > 1)
-                    .map(Reader::getEmail)
-                    .map(email -> new EmailAddress(email))
-                    .toList();
+                                                  .filter(Reader::isSubscriber)
+                                                  .filter(reader -> reader.getBooks().size() > 1)
+                                                  .map(Reader::getEmail)
+                                                  .map(email -> new EmailAddress(email))
+                                                  .toList();
         }
         //Получить список всех книг, взятых читателями. Список не должен содержать дубликатов (книг одного автора, с одинаковым названием и годом издания).
         Set<Book> result = new LinkedHashSet<>();
@@ -67,15 +96,15 @@ public class Main {
             result.addAll(reader.getBooks());
         }
         List<Book> bookList = library.getReaders().stream()
-                .flatMap(reader -> reader.getBooks().stream())
-                .distinct()
-                .toList();
+                                     .flatMap(reader -> reader.getBooks().stream())
+                                     .distinct()
+                                     .toList();
 
 //        Проверить, взял ли кто-то из читателей библиотеки какие-нибудь книги Пушкина.
         checkAuthorBooks(library);
         boolean match = library.getReaders().stream()
-                .flatMap(reader -> reader.getBooks().stream())
-                .anyMatch(book -> "Пушкин".equals(book.getAuthor()));
+                               .flatMap(reader -> reader.getBooks().stream())
+                               .anyMatch(book -> "Пушкин".equals(book.getAuthor()));
 
         //Узнать наибольшее число книг, которое сейчас на руках у читателя.
         {
@@ -88,8 +117,8 @@ public class Main {
         }
         {
             Integer reduce = library.getReaders().stream()
-                    .map(reader -> reader.getBooks().size())
-                    .reduce(0, (max, size) -> size > max ? size : max);
+                                    .map(reader -> reader.getBooks().size())
+                                    .reduce(0, (max, size) -> size > max ? size : max);
         }
         //Теперь нужно не просто отправить письма всем, кто согласился на рассылку, — будем рассылать разные тексты двум группам:
         //
@@ -99,33 +128,32 @@ public class Main {
         method(library);
         {
             Map<String, List<EmailAddress>> map = library.getReaders().stream()
-                    .filter(Reader::isSubscriber)
-                    .collect(Collectors.groupingBy(r -> r.getBooks().size() > 2 ? "TOO_MUCH" : "OK",
-                            Collectors.mapping(r -> new EmailAddress(r.getEmail()), Collectors.toList())));
+                                                         .filter(Reader::isSubscriber)
+                                                         .collect(Collectors.groupingBy(r -> r.getBooks().size() > 2 ? "TOO_MUCH" : "OK",
+                                                                                        Collectors.mapping(r -> new EmailAddress(r.getEmail()), Collectors.toList())));
 
             for (Map.Entry<String, List<EmailAddress>> entry : map.entrySet()) {
                 String emails = entry.getValue().stream()
-                        .map(EmailAddress::getEmail)
-                        .collect(joining(","));
+                                     .map(EmailAddress::getEmail)
+                                     .collect(joining(","));
                 System.out.println(entry.getKey() + " - " + emails);
             }
 
-
             map.values().stream()
-                    .flatMap(Collection::stream)
-                    .map(EmailAddress::getEmail)
-                    .forEach(System.out::println);
+               .flatMap(Collection::stream)
+               .map(EmailAddress::getEmail)
+               .forEach(System.out::println);
         }
         //Если нужны не адреса, а просто списки читателей в каждой группе:
         Map<String, List<Reader>> readerstMap = library.getReaders().stream()
-                .filter(Reader::isSubscriber)
-                .collect(groupingBy(r -> r.getBooks().size() > 2 ? "TOO_MUCH" : "OK"));
+                                                       .filter(Reader::isSubscriber)
+                                                       .collect(groupingBy(r -> r.getBooks().size() > 2 ? "TOO_MUCH" : "OK"));
         //Если для каждой группы нужны ФИО читателей из этой группы, перечисленные через запятую. И ещё каждый такой список ФИО нужно обернуть фигурными скобками.
         {
             Map<String, String> readersFIOMap = library.getReaders().stream()
-                    .filter(Reader::isSubscriber)
-                    .collect(groupingBy(r -> r.getBooks().size() > 2 ? "TOO_MUCH" : "OK",
-                            mapping(Reader::getFio, joining(", ", "{", "}"))));
+                                                       .filter(Reader::isSubscriber)
+                                                       .collect(groupingBy(r -> r.getBooks().size() > 2 ? "TOO_MUCH" : "OK",
+                                                                           mapping(Reader::getFio, joining(", ", "{", "}"))));
             String readersFios = readersFIOMap.get("OK");
             System.out.println(readersFios);
         }

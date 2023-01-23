@@ -1,9 +1,12 @@
 package task4;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
 public class Demo {
+
     public static void main(String[] args) {
         Category hdd = new Category("HDD");
         fillCategory(hdd);
@@ -19,6 +22,14 @@ public class Demo {
         printItems(hdd.sortByRating());
         System.out.println("Отсортировано в обратном порядке по рейтингу:");
         printItems(hdd.reverseSortByRating());
+        getSortedCategories(Arrays.asList(hdd), Comparator.comparing(Item::getName).reversed());
+    }
+
+    private static List<Item> getSortedCategories(List<Category> categories, Comparator<Item> categoryComparator) {
+        return categories.stream()
+                         .flatMap(category -> category.getItemList().stream())
+                         .sorted(categoryComparator)
+                         .toList();
     }
 
     public static void fillCategory(Category category) {
