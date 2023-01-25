@@ -89,5 +89,6 @@
         <module>Lesson21jdbc</module>
         <module>Lesson22</module>
         <module>Lesson23</module>
+        <module>Lesson24web</module>
     </modules>
 </project>
