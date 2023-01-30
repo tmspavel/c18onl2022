@@ -46,6 +46,12 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.12.0</version>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <modules>
@@ -90,5 +96,6 @@
         <module>Lesson22</module>
         <module>Lesson23</module>
         <module>Lesson24web</module>
+        <module>Lesson25</module>
     </modules>
 </project>
