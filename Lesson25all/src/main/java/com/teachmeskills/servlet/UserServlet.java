@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 public class UserServlet extends HttpServlet {
 
     private UserService userService;
-    private static Map<String, String> map = new ConcurrentHashMap<>();
+    private static Map<String, String> map = new ConcurrentHashMap<>();//нужно делать синхронизацию, т.к общий для всех запросов
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -30,9 +30,8 @@ public class UserServlet extends HttpServlet {
             HttpServletRequest req,
             HttpServletResponse resp
     ) throws IOException, ServletException {
-        map.put("1", "232");
-
-        final List<User> users = userService.findUsers();
+//        map.put("1", "232");
+        List<User> users = userService.findUsers();
         req.setAttribute("users", users);
         getServletContext().getRequestDispatcher("/users.jsp").forward(req, resp);
     }

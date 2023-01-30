@@ -16,16 +16,17 @@ public class DependencyInitializationContextListener implements ServletContextLi
     @Override
     public void contextInitialized(final ServletContextEvent sce) {
 //        final String dbDriver = "org.postgresql.Driver";
-        final String username = sce.getServletContext().getInitParameter("db_user");
-        final String password = sce.getServletContext().getInitParameter("db_password");
-        final String dbUrl = sce.getServletContext().getInitParameter("db_url");
+        String username = sce.getServletContext().getInitParameter("db_user");
+        String password = sce.getServletContext().getInitParameter("db_password");
+        String dbUrl = sce.getServletContext().getInitParameter("db_url");
 
         try {
 //            Class.forName(dbDriver);
-            final Connection con = DriverManager.getConnection(dbUrl, username, password);
-            UserRepository repository = new JdbcUserRepository(con);
+            Connection connection = DriverManager.getConnection(dbUrl, username, password);
+            UserRepository repository = new JdbcUserRepository(connection);
             UserService userService = new UserService(repository);
             sce.getServletContext().setAttribute("userService", userService);
+            sce.getServletContext().setAttribute("connection", connection);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
