@@ -9,3 +9,9 @@ https://javarush.com/groups/posts/2529-chastjh-5-servletih-pishem-prostoe-veb-pr
 
 - Filter
 https://proselyte.net/tutorials/servlets/filters/
+
+-Session - хранит данные переданые в предыдущих запросах
+написать пример что на формет логина мы ложим в сесию пароль и логин
+req.setSession
+req.getSession(false)
+перейдем на другую страницу и там достанем.
