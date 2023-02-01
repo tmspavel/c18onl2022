@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.wrapper {
+  position: relative;
+  color: brown;
+  min-height: 100%;
+}
+
+.header {
+  padding-bottom: 90px;
+  background-color: red;
+  border: 2px solid blue;
+}
+
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background-color: black;
+}

@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap');
+
+label {
+  font-family: 'Josefin+Sans', serif;
+  font-weight: bold;
+  font-style: italic;
+  color: blue;
+}
+
+/** {*/
+/*  border: 2px solid red;*/
+/*}*/
+
+/*input[type=submit] {*/
+/*  background-color: brown;*/
+/*}*/
+
+#login_btn {
+  background-color: brown;
+}
+
+p::first-line {
+  background-color: red;
+}
+
+input {
+  background-color: antiquewhite;
+}
+

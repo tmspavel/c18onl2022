@@ -1,0 +1,49 @@
+/*Как можно разместить форму в центре?.
+1. По умолчанию форма автоматически растягивается на всю область видимости
+(например, на ширину экрана, если она не в каком-то div контейнере).
+2. Можно просто центрировать содержимое формы, применив к ней свойство text-align: center;
+3. Добавить отсуп сверху так, что форма сместилась к середине экрана с помощью свойства margin-top: 10vw*/
+
+form {
+  text-align: center;
+  margin-top: 10vw;
+}
+
+label {
+  font-family: 'Cookie', cursive;
+  font-size: 4vw;
+  color: darkseagreen;
+  text-shadow: 3px 5px 6px;
+}
+
+input {
+  font-family: 'Cookie', cursive;
+  font-size: 3vw;
+  width: 10vw;
+}
+
+#login_btn {
+  font-family: 'Cookie', cursive;
+  font-size: 3vw;
+  color: black;
+  background: darkseagreen;
+}
+
+th {
+  border: 1px solid blue;
+  background: darkseagreen;
+}
+
+table, th, td {
+  border: 1px solid blue;
+  text-align: center;
+  margin-left: 25vw;
+  width: 50%;
+}
+
+h1 {
+  font-family: 'Cookie', cursive;
+  font-size: 4vw;
+  color: darkseagreen;
+  text-shadow: 3px 5px 6px;
+}
