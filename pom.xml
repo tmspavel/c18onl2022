@@ -99,5 +99,7 @@
         <module>Lesson25</module>
         <module>Lesson25filter</module>
         <module>Lesson25all</module>
+        <module>Lesson26htmlcss</module>
+        <module>Lesson26calc</module>
     </modules>
 </project>
