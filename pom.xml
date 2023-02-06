@@ -112,5 +112,6 @@
         <module>Lesson25all</module>
         <module>Lesson26htmlcss</module>
         <module>Lesson26calc</module>
+        <module>Lesson27</module>
     </modules>
 </project>
