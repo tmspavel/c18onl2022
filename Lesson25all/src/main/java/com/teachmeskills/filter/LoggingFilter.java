@@ -23,9 +23,16 @@ public class LoggingFilter implements Filter {
             ServletResponse response,
             FilterChain chain
     ) throws IOException, ServletException {
-        System.out.println("(Filter) Start. The caller IP is " + request.getLocalAddr());
-        chain.doFilter(request, response);
-        System.out.println("(Filter) Finish. ");
+//        System.out.println("(Filter) Start. The caller IP is " + request.getLocalAddr());
+        System.out.println("1");
+        try {
+            System.out.println("2");
+            chain.doFilter(request, response);
+            System.out.println("3");
+        } catch (Exception exception) {
+            System.out.println("Exception " + exception.getMessage());
+        }
+        System.out.println("4");
     }
 
     @Override

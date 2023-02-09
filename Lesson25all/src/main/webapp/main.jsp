@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<a href="/servlet/users">
+<a href="/users">
     <%="Get list of users".toUpperCase()%>
 </a>
 <p>

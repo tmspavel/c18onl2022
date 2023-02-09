@@ -5,6 +5,10 @@
 http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
     version="2.4">
     <context-param>
+        <param-name>db_driver</param-name>
+        <param-value>org.postgresql.Driver</param-value>
+    </context-param>
+    <context-param>
         <param-name>db_url</param-name>
         <param-value>jdbc:postgresql://localhost:5432/students_db</param-value>
     </context-param>
