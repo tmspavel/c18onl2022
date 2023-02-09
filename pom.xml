@@ -10,8 +10,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
+        <maven.compiler.source>14</maven.compiler.source>
+        <maven.compiler.target>14</maven.compiler.target>
         <junit.jupiter.version>5.9.1</junit.jupiter.version>
         <junit.platform.version>1.9.1</junit.platform.version>
     </properties>
@@ -113,5 +113,6 @@
         <module>Lesson26htmlcss</module>
         <module>Lesson26calc</module>
         <module>Lesson27</module>
+        <module>Lesson28</module>
     </modules>
 </project>
