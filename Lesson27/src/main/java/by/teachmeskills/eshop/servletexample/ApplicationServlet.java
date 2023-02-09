@@ -36,8 +36,11 @@ public class ApplicationServlet extends HttpServlet {
             validateParamNotNull(pass);
 
             User adminUser = new User(ADMIN_LOGIN, ADMIN_PASSWORD);
-            RequestDispatcher rd = req.getRequestDispatcher(checkReceivedUser(adminUser, req));
-            rd.forward(req, resp);
+//1 вариант forward
+//            RequestDispatcher rd = req.getRequestDispatcher(checkReceivedUser(adminUser, req));
+//            rd.forward(req, resp);
+//2 варинант с sendRedirect
+            resp.sendRedirect(checkReceivedUser(adminUser, req));
         } catch (RequestParamNullException e) {
             System.out.println(e.getMessage());
         }
@@ -51,7 +54,7 @@ public class ApplicationServlet extends HttpServlet {
 
             List<Category> categories = getCategories();
 
-            request.setAttribute("categories", categories);
+            request.getSession().setAttribute("categories", categories);
 
             return "home.jsp";
         } else {

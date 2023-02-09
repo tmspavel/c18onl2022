@@ -22,6 +22,7 @@
 </head>
 <body>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<c:set var="categories" value="${sessionScope.get('categories')}"/>
 <h2>Popular categories</h2>
 
 <div class="container-fluid">
