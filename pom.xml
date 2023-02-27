@@ -64,7 +64,9 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
+    <build>
+        <defaultGoal>clean package</defaultGoal>
+    </build>
     <modules>
         <module>Lesson1</module>
         <module>Lesson2</module>
