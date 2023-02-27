@@ -6,11 +6,20 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class CategoryService {
+public class CategoryService implements CategoryServiceAware {
 
     private final CategoryRepository categoryRepository;
 
     public List<Category> getCategories() {
         return categoryRepository.getCategories();
+    }
+
+    public Category getCategoryById(int id) {
+        return categoryRepository.getCategory(id);
+    }
+
+    @Override
+    public Category getCategoryByName(String name) {
+        return null;
     }
 }

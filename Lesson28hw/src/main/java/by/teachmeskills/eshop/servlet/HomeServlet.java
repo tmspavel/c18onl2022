@@ -10,6 +10,7 @@ import by.teachmeskills.eshop.model.Cart;
 import by.teachmeskills.eshop.model.Category;
 import by.teachmeskills.eshop.model.User;
 import by.teachmeskills.eshop.service.CategoryService;
+import by.teachmeskills.eshop.service.CategoryServiceAware;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -20,11 +21,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet("/home")
 public class HomeServlet extends HttpServlet {
 
-    private CategoryService categoryService;
+    private CategoryServiceAware categoryService;
 
     @Override
     public void init(ServletConfig config) throws ServletException {

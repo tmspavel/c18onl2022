@@ -1,8 +1,9 @@
-package by.teachmeskills.eshop.repository;
+package by.teachmeskills.eshop.repository.impl;
 
 import static by.teachmeskills.eshop.utils.ProductHelper.products;
 
 import by.teachmeskills.eshop.model.Product;
+import by.teachmeskills.eshop.repository.ProductRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 

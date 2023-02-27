@@ -21,11 +21,7 @@
 <body>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<ul>
-    <li><a class="active" href='home'><i class="fa fa-fw fa-home"></i> Главная</a></li>
-    <li style="float:right"><a href='cart'><i class="fa fa-fw fa-shopping-cart"></i> Корзина</a></li>
-    <li style="float:right"><a href='profile'><i class="fa fa-fw fa-user"></i> Пользователь</a></li>
-</ul>
+<jsp:include page="header.jsp"/>
 <br>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <h2>${nameCategory}</h2><br>
