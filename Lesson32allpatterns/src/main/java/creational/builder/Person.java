@@ -1,4 +1,4 @@
-package by.home.creational.builder;
+package creational.builder;
 
 import java.util.List;
 

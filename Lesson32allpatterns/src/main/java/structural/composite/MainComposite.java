@@ -1,9 +1,9 @@
-package by.home.structural.composite;
+package structural.composite;
 
 public class MainComposite {
 
     public static void main(String[] args) {
-        by.home.structural.composite.Team team = new by.home.structural.composite.Team();
+        structural.composite.Team team = new structural.composite.Team();
         team.addDeveloper(new JavaDeveloper());
         team.addDeveloper(new PhpDeveloper());
         team.addDeveloper(new JavaDeveloper());

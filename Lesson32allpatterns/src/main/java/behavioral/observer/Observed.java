@@ -1,4 +1,4 @@
-package by.home.behavioral.observer;
+package behavioral.observer;
 
 public interface Observed {
 

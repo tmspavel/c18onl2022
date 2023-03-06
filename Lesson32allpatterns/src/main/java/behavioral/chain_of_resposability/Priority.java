@@ -1,4 +1,4 @@
-package by.home.behavioral.chain_of_resposability;
+package behavioral.chain_of_resposability;
 
 public class Priority {
 

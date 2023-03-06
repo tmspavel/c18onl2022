@@ -1,4 +1,4 @@
-package by.home.structural.decorator;
+package structural.decorator;
 
 public class JavaDeveloper implements Developer {
 

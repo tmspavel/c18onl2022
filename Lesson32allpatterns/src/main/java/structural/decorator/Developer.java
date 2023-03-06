@@ -1,4 +1,4 @@
-package by.home.structural.decorator;
+package structural.decorator;
 
 interface Developer {
 

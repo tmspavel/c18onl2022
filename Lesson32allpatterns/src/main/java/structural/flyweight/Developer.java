@@ -1,4 +1,4 @@
-package by.home.structural.flyweight;
+package structural.flyweight;
 
 public interface Developer {
 

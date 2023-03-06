@@ -1,9 +1,9 @@
-package by.home.creational.factory;
+package creational.factory;
 
 public class CppDeveloperFactory implements DeveloperFactory {
 
     @Override
     public Developer createNewDeveloper() {
-        return new by.home.creational.factory.CppDeveloper();
+        return new creational.factory.CppDeveloper();
     }
 }

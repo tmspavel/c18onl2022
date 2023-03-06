@@ -1,4 +1,4 @@
-package by.home.behavioral.state;
+package behavioral.state;
 
 public class MainState {
 

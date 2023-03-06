@@ -1,4 +1,4 @@
-package by.home.structural.composite;
+package structural.composite;
 
 public interface Developer {
 

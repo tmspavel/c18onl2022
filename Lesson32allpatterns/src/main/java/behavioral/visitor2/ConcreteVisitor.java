@@ -1,6 +1,6 @@
-package by.home.behavioral.visitor2;
+package behavioral.visitor2;
 
-public class ConcreteVisitor implements by.home.behavioral.visitor2.Visitor {
+public class ConcreteVisitor implements behavioral.visitor2.Visitor {
 
     @Override
     public void sayDog() {

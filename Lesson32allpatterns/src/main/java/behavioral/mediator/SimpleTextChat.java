@@ -1,24 +1,24 @@
-package by.home.behavioral.mediator;
+package behavioral.mediator;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SimpleTextChat implements by.home.behavioral.mediator.Chat {
+public class SimpleTextChat implements behavioral.mediator.Chat {
 
-    private by.home.behavioral.mediator.User admin;
-    private List<by.home.behavioral.mediator.User> users = new ArrayList<>();
+    private behavioral.mediator.User admin;
+    private List<behavioral.mediator.User> users = new ArrayList<>();
 
-    public void addUserToChat(by.home.behavioral.mediator.User user) {
+    public void addUserToChat(behavioral.mediator.User user) {
         this.users.add(user);
     }
 
-    public void setAdmin(by.home.behavioral.mediator.User admin) {
+    public void setAdmin(behavioral.mediator.User admin) {
         this.admin = admin;
     }
 
     @Override
-    public void sendMessage(String message, by.home.behavioral.mediator.User user) {
-        for (by.home.behavioral.mediator.User u : users) {
+    public void sendMessage(String message, behavioral.mediator.User user) {
+        for (behavioral.mediator.User u : users) {
             if (u != user) {
                 u.getMessage(message);
             }

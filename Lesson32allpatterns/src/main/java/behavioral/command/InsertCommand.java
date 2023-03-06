@@ -1,6 +1,6 @@
-package by.home.behavioral.command;
+package behavioral.command;
 
-public class InsertCommand implements by.home.behavioral.command.Command {
+public class InsertCommand implements behavioral.command.Command {
 
     private Database database;
 

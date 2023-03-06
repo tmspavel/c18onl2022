@@ -1,6 +1,6 @@
-package by.home.structural.adapter3;
+package structural.adapter3;
 
-public class MyTrack implements by.home.structural.adapter3.Truck {
+public class MyTrack implements structural.adapter3.Truck {
 
     @Override
     public void cleanTruck() {

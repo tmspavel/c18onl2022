@@ -1,4 +1,4 @@
-package by.home.structural.adapter2;
+package structural.adapter2;
 
 public interface Turkey {
 

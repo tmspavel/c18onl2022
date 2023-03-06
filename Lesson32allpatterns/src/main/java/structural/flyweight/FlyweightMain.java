@@ -1,4 +1,4 @@
-package by.home.structural.flyweight;
+package structural.flyweight;
 
 import java.util.ArrayList;
 import java.util.List;

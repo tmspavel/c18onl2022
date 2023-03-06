@@ -1,4 +1,4 @@
-package by.home.behavioral.visitor;
+package behavioral.visitor;
 
 public interface ProjectElement {
 

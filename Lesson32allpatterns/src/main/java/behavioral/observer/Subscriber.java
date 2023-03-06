@@ -1,4 +1,4 @@
-package by.home.behavioral.observer;
+package behavioral.observer;
 
 import java.util.List;
 

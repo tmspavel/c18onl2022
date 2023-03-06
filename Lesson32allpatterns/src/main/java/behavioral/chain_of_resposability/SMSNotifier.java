@@ -1,6 +1,6 @@
-package by.home.behavioral.chain_of_resposability;
+package behavioral.chain_of_resposability;
 
-public class SMSNotifier extends by.home.behavioral.chain_of_resposability.Notifier {
+public class SMSNotifier extends behavioral.chain_of_resposability.Notifier {
 
     public SMSNotifier(int priority) {
         super(priority);

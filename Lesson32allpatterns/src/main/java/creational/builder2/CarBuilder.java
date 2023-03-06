@@ -1,4 +1,4 @@
-package by.home.creational.builder2;
+package creational.builder2;
 
 public interface CarBuilder {
 

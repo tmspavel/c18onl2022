@@ -1,4 +1,4 @@
-package by.home.structural.adapter;
+package structural.adapter;
 
 public interface DataBase {
 

@@ -1,11 +1,11 @@
-package by.home.behavioral.mediator;
+package behavioral.mediator;
 
-public class Admin implements by.home.behavioral.mediator.User {
+public class Admin implements behavioral.mediator.User {
 
-    private by.home.behavioral.mediator.Chat chat;
+    private behavioral.mediator.Chat chat;
     private String name;
 
-    public Admin(by.home.behavioral.mediator.Chat chat, String name) {
+    public Admin(behavioral.mediator.Chat chat, String name) {
         this.chat = chat;
         this.name = name;
     }

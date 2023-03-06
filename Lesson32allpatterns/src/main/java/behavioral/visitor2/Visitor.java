@@ -1,4 +1,4 @@
-package by.home.behavioral.visitor2;
+package behavioral.visitor2;
 
 public interface Visitor {
 

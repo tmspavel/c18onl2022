@@ -1,6 +1,6 @@
-package by.home.structural.adapter;
+package structural.adapter;
 
-public class AdapterJavaAppToDataBase extends by.home.structural.adapter.JavaApplication implements by.home.structural.adapter.DataBase {
+public class AdapterJavaAppToDataBase extends structural.adapter.JavaApplication implements structural.adapter.DataBase {
 
     @Override
     public void create() {

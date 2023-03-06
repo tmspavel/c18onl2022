@@ -1,4 +1,4 @@
-package by.home.behavioral.memento;
+package behavioral.memento;
 
 import java.util.Date;
 

@@ -1,20 +1,20 @@
-package by.home.behavioral.visitor;
+package behavioral.visitor;
 
-public class Project implements by.home.behavioral.visitor.ProjectElement {
+public class Project implements behavioral.visitor.ProjectElement {
 
-    private by.home.behavioral.visitor.ProjectElement[] projectElements;
+    private behavioral.visitor.ProjectElement[] projectElements;
 
     public Project() {
-        this.projectElements = new by.home.behavioral.visitor.ProjectElement[]{
-                new by.home.behavioral.visitor.ProjectClass(),
+        this.projectElements = new behavioral.visitor.ProjectElement[]{
+                new behavioral.visitor.ProjectClass(),
                 new Database(),
-                new by.home.behavioral.visitor.Test()
+                new behavioral.visitor.Test()
         };
     }
 
     @Override
     public void beWritten(Developer developer) {
-        for (by.home.behavioral.visitor.ProjectElement projectElement : projectElements) {
+        for (behavioral.visitor.ProjectElement projectElement : projectElements) {
             projectElement.beWritten(developer);
         }
     }

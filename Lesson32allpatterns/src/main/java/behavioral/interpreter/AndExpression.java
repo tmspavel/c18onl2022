@@ -1,4 +1,4 @@
-package by.home.behavioral.interpreter;
+package behavioral.interpreter;
 
 public class AndExpression implements Expression {
 

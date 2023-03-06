@@ -1,4 +1,4 @@
-package by.home.structural.bridge;
+package structural.bridge;
 
 public interface Developer {
 

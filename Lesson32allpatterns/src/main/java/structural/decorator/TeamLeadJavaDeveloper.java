@@ -1,6 +1,6 @@
-package by.home.structural.decorator;
+package structural.decorator;
 
-public class TeamLeadJavaDeveloper extends by.home.structural.decorator.DeveloperDecorator {
+public class TeamLeadJavaDeveloper extends structural.decorator.DeveloperDecorator {
 
     public TeamLeadJavaDeveloper(Developer developer) {
         super(developer);

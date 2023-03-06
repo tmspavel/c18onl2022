@@ -1,9 +1,9 @@
-package by.home.behavioral.observer;
+package behavioral.observer;
 
 public class MainObserver {
 
     public static void main(String[] args) {
-        by.home.behavioral.observer.JavaDeveloperJobSite jobSite = new by.home.behavioral.observer.JavaDeveloperJobSite();
+        behavioral.observer.JavaDeveloperJobSite jobSite = new behavioral.observer.JavaDeveloperJobSite();
         jobSite.addVacancy("First Java Position");
         jobSite.addVacancy("Second Java Position");
         Observer firstSubscriber = new Subscriber("Ivan Ivanov");

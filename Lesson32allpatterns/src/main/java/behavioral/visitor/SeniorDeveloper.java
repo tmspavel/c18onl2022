@@ -1,9 +1,9 @@
-package by.home.behavioral.visitor;
+package behavioral.visitor;
 
 public class SeniorDeveloper implements Developer {
 
     @Override
-    public void create(by.home.behavioral.visitor.ProjectClass projectClass) {
+    public void create(behavioral.visitor.ProjectClass projectClass) {
         System.out.println("Rewriting class after junior");
     }
 
@@ -13,7 +13,7 @@ public class SeniorDeveloper implements Developer {
     }
 
     @Override
-    public void create(by.home.behavioral.visitor.Test test) {
+    public void create(behavioral.visitor.Test test) {
         System.out.println("Creating reliable test...");
     }
 }

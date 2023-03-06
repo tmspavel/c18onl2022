@@ -1,6 +1,6 @@
-package by.home.structural.bridge;
+package structural.bridge;
 
-public class StoreApplication extends by.home.structural.bridge.Program {
+public class StoreApplication extends structural.bridge.Program {
 
     public StoreApplication(Developer developer) {
         super(developer);

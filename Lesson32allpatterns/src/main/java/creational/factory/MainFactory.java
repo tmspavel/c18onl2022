@@ -1,8 +1,8 @@
-package by.home.creational.factory;
+package creational.factory;
 
-import static by.home.creational.factory.DeveloperType.Cpp;
-import static by.home.creational.factory.DeveloperType.JAVA;
-import static by.home.creational.factory.DeveloperType.PHP;
+import static creational.factory.DeveloperType.Cpp;
+import static creational.factory.DeveloperType.JAVA;
+import static creational.factory.DeveloperType.PHP;
 
 public class MainFactory {
 
@@ -20,11 +20,11 @@ public class MainFactory {
         developer2.writeCode();
     }
 
-    static DeveloperFactory getDeveloper(by.home.creational.factory.DeveloperType value) {
+    static DeveloperFactory getDeveloper(creational.factory.DeveloperType value) {
         return switch (value) {
-            case JAVA -> new by.home.creational.factory.JavaDeveloperFactory();
-            case Cpp -> new by.home.creational.factory.CppDeveloperFactory();
-            case PHP -> new by.home.creational.factory.PhpDeveloperFactory();
+            case JAVA -> new creational.factory.JavaDeveloperFactory();
+            case Cpp -> new creational.factory.CppDeveloperFactory();
+            case PHP -> new creational.factory.PhpDeveloperFactory();
         };
     }
 }

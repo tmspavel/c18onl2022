@@ -1,4 +1,4 @@
-package by.home.behavioral.iterator;
+package behavioral.iterator;
 
 public class MainIterator {
 

@@ -1,12 +1,12 @@
-package by.home.behavioral.mediator;
+package behavioral.mediator;
 
 public class MainMediator {
 
     public static void main(String[] args) {
-        by.home.behavioral.mediator.SimpleTextChat chat = new by.home.behavioral.mediator.SimpleTextChat();
-        by.home.behavioral.mediator.User admin = new by.home.behavioral.mediator.Admin(chat, "Admin");
-        by.home.behavioral.mediator.User user1 = new by.home.behavioral.mediator.SimpleUser(chat, "User 1");
-        by.home.behavioral.mediator.User user2 = new by.home.behavioral.mediator.SimpleUser(chat, "User 2");
+        behavioral.mediator.SimpleTextChat chat = new behavioral.mediator.SimpleTextChat();
+        behavioral.mediator.User admin = new behavioral.mediator.Admin(chat, "Admin");
+        behavioral.mediator.User user1 = new behavioral.mediator.SimpleUser(chat, "User 1");
+        behavioral.mediator.User user2 = new behavioral.mediator.SimpleUser(chat, "User 2");
         chat.setAdmin(admin);
         chat.addUserToChat(user1);
         chat.addUserToChat(user2);

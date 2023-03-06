@@ -1,12 +1,12 @@
-package by.home.creational.abstractfactory;
+package creational.abstractfactory;
 
 public class MainAbstractFactory {
 
     public static void main(String[] args) {
-        by.home.creational.abstractfactory.ProjectTeamFactory projectTeamFactory = new by.home.creational.abstractfactory.ProjectTeamBank();
+        creational.abstractfactory.ProjectTeamFactory projectTeamFactory = new creational.abstractfactory.ProjectTeamBank();
         Developer developer = projectTeamFactory.getDeveloper();
-        by.home.creational.abstractfactory.Tester tester = projectTeamFactory.getTester();
-        by.home.creational.abstractfactory.ProjectManager projectManager = projectTeamFactory.getProjectManager();
+        creational.abstractfactory.Tester tester = projectTeamFactory.getTester();
+        creational.abstractfactory.ProjectManager projectManager = projectTeamFactory.getProjectManager();
         developer.writeCode();
         tester.testProject();
         projectManager.manageProject();

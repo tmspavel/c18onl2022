@@ -1,9 +1,9 @@
-package by.home.structural.decorator;
+package structural.decorator;
 
 public class DecoratorMain {
 
     public static void main(String[] args) {
-        Developer developer = new by.home.structural.decorator.TeamLeadJavaDeveloper(new by.home.structural.decorator.SeniorJavaDeveloper(new JavaDeveloper()));
+        Developer developer = new structural.decorator.TeamLeadJavaDeveloper(new structural.decorator.SeniorJavaDeveloper(new JavaDeveloper()));
         developer.writeCode();
     }
 }

@@ -1,9 +1,9 @@
-package by.home.structural.proxy;
+package structural.proxy;
 
 public class ProxyProject implements Project {
 
     private String url;
-    private by.home.structural.proxy.RealProject realProject;
+    private structural.proxy.RealProject realProject;
 
     public ProxyProject(String url) {
         this.url = url;
@@ -12,7 +12,7 @@ public class ProxyProject implements Project {
     @Override
     public void runProject() {
         if (realProject == null) {
-            realProject = new by.home.structural.proxy.RealProject(url);
+            realProject = new structural.proxy.RealProject(url);
         }
         realProject.runProject();
     }

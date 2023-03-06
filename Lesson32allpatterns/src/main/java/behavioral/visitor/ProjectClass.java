@@ -1,6 +1,6 @@
-package by.home.behavioral.visitor;
+package behavioral.visitor;
 
-public class ProjectClass implements by.home.behavioral.visitor.ProjectElement {
+public class ProjectClass implements behavioral.visitor.ProjectElement {
 
     @Override
     public void beWritten(Developer developer) {

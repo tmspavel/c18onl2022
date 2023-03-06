@@ -1,4 +1,4 @@
-package by.home.structural.proxy;
+package structural.proxy;
 
 public class RealProject implements Project {
 

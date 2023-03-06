@@ -1,4 +1,4 @@
-package by.home.behavioral.template2;
+package behavioral.template2;
 
 public class Tea extends Beverage {
 

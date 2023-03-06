@@ -1,4 +1,4 @@
-package by.home.behavioral.memento;
+package behavioral.memento;
 
 import java.util.Date;
 
@@ -12,11 +12,11 @@ public class Project {
         this.date = new Date();
     }
 
-    public by.home.behavioral.memento.Save save() {
-        return new by.home.behavioral.memento.Save(version);
+    public behavioral.memento.Save save() {
+        return new behavioral.memento.Save(version);
     }
 
-    public void load(by.home.behavioral.memento.Save save) {
+    public void load(behavioral.memento.Save save) {
         version = save.getVersion();
         date = save.getDate();
     }

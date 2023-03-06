@@ -1,10 +1,10 @@
-package by.home.behavioral.memento;
+package behavioral.memento;
 
 public class MainMemento {
 
     public static void main(String[] args) throws InterruptedException {
         Project project = new Project();
-        by.home.behavioral.memento.GitHubRepo gitHubRepo = new by.home.behavioral.memento.GitHubRepo();
+        behavioral.memento.GitHubRepo gitHubRepo = new behavioral.memento.GitHubRepo();
 
         System.out.println("Creating new project. Version 1.0");
         project.setVersionAndDate("Version 1.0");

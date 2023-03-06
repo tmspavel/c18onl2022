@@ -1,4 +1,4 @@
-package by.home.creational.factory;
+package creational.factory;
 
 public interface DeveloperFactory {
 

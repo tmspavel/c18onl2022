@@ -1,6 +1,6 @@
-package by.home.behavioral.template;
+package behavioral.template;
 
-public class WelcomePage extends by.home.behavioral.template.WebsiteTemplate {
+public class WelcomePage extends behavioral.template.WebsiteTemplate {
 
     @Override
     public void showPageContent() {

@@ -1,4 +1,4 @@
-package by.home.structural.adapter3;
+package structural.adapter3;
 
 public interface Car {
 

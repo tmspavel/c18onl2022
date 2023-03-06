@@ -1,6 +1,6 @@
-package by.home.structural.adapter2;
+package structural.adapter2;
 
-public class WildTurkey implements by.home.structural.adapter2.Turkey {
+public class WildTurkey implements structural.adapter2.Turkey {
 
     @Override
     public void gobble() {

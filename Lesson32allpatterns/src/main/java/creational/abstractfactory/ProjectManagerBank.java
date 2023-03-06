@@ -1,6 +1,6 @@
-package by.home.creational.abstractfactory;
+package creational.abstractfactory;
 
-public class ProjectManagerBank implements by.home.creational.abstractfactory.ProjectManager {
+public class ProjectManagerBank implements creational.abstractfactory.ProjectManager {
 
     @Override
     public void manageProject() {

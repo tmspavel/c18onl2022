@@ -1,10 +1,10 @@
-package by.home.structural.adapter2;
+package structural.adapter2;
 
-public class AdapterTurkeyToDuck implements by.home.structural.adapter2.Duck {
+public class AdapterTurkeyToDuck implements structural.adapter2.Duck {
 
-    by.home.structural.adapter2.Turkey turkey;
+    structural.adapter2.Turkey turkey;
 
-    public AdapterTurkeyToDuck(by.home.structural.adapter2.Turkey turkey) {
+    public AdapterTurkeyToDuck(structural.adapter2.Turkey turkey) {
         this.turkey = turkey;
     }
 

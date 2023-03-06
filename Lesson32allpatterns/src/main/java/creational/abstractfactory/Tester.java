@@ -1,4 +1,4 @@
-package by.home.creational.abstractfactory;
+package creational.abstractfactory;
 
 public interface Tester {
 

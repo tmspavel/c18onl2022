@@ -1,4 +1,4 @@
-package by.home.behavioral.stategy;
+package behavioral.stategy;
 
 public interface Activity {
 

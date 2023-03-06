@@ -1,4 +1,4 @@
-package by.home.creational.prototype;
+package creational.prototype;
 
 public abstract class Animal {
 

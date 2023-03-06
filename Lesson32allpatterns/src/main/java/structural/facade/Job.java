@@ -1,4 +1,4 @@
-package by.home.structural.facade;
+package structural.facade;
 
 public class Job {
 

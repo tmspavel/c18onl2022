@@ -1,4 +1,4 @@
-package by.home.structural.decorator2;
+package structural.decorator2;
 
 public class HouseBlend extends Beverage {
 

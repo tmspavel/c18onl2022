@@ -1,4 +1,4 @@
-package by.home.creational.abstractfactory;
+package creational.abstractfactory;
 
 public class JavaDeveloper implements Developer {
 

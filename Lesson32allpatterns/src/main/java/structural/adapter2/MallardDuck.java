@@ -1,6 +1,6 @@
-package by.home.structural.adapter2;
+package structural.adapter2;
 
-public class MallardDuck implements by.home.structural.adapter2.Duck {
+public class MallardDuck implements structural.adapter2.Duck {
 
     @Override
     public void fly() {

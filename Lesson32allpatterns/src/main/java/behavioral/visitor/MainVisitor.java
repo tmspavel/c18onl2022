@@ -1,11 +1,11 @@
-package by.home.behavioral.visitor;
+package behavioral.visitor;
 
 public class MainVisitor {
 
     public static void main(String[] args) {
         Project project = new Project();
-        by.home.behavioral.visitor.JuniorDeveloper juniorDeveloper = new by.home.behavioral.visitor.JuniorDeveloper();
-        by.home.behavioral.visitor.SeniorDeveloper seniorDeveloper = new by.home.behavioral.visitor.SeniorDeveloper();
+        behavioral.visitor.JuniorDeveloper juniorDeveloper = new behavioral.visitor.JuniorDeveloper();
+        behavioral.visitor.SeniorDeveloper seniorDeveloper = new behavioral.visitor.SeniorDeveloper();
 
         System.out.println("Junior in action...");
         project.beWritten(juniorDeveloper);

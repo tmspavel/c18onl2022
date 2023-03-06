@@ -1,6 +1,6 @@
-package by.home.behavioral.command;
+package behavioral.command;
 
-public class DeleteCommand implements by.home.behavioral.command.Command {
+public class DeleteCommand implements behavioral.command.Command {
 
     private Database database;
 

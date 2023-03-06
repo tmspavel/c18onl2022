@@ -1,4 +1,4 @@
-package by.home.behavioral.command;
+package behavioral.command;
 
 public interface Command {
 

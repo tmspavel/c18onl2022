@@ -1,10 +1,10 @@
-package by.home.creational.builder2;
+package creational.builder2;
 
 public class AutomotiveEngineer {
 
-    private by.home.creational.builder2.CarBuilder builder;
+    private creational.builder2.CarBuilder builder;
 
-    public AutomotiveEngineer(by.home.creational.builder2.CarBuilder builder) {
+    public AutomotiveEngineer(creational.builder2.CarBuilder builder) {
         super();
         this.builder = builder;
         if (this.builder == null) {

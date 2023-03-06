@@ -1,9 +1,9 @@
-package by.home.behavioral.observer;
+package behavioral.observer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class JavaDeveloperJobSite implements by.home.behavioral.observer.Observed {
+public class JavaDeveloperJobSite implements behavioral.observer.Observed {
 
     private List<String> vacancies = new ArrayList<>();
     private List<Observer> subscribers = new ArrayList<>();

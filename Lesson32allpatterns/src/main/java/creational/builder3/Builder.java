@@ -1,4 +1,4 @@
-package by.home.creational.builder3;
+package creational.builder3;
 
 public interface Builder {
 
