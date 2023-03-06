@@ -1,0 +1,9 @@
+package by.home.structural.adapter3;
+
+public class MyTrack implements by.home.structural.adapter3.Truck {
+
+    @Override
+    public void cleanTruck() {
+        System.out.println("My truck is cleaning");
+    }
+}
