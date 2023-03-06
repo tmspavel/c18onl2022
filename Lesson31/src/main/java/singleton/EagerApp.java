@@ -1,9 +1,8 @@
-package singleton;
+package by.teachmeskills.patterns.singleton;
 
-import singleton.otherExamples.StaticInitializationSingleton;
+import by.teachmeskills.patterns.singleton.otherExamples.StaticInitializationSingleton;
 
 public class EagerApp {
-
     public static void main(String[] args) {
         StaticInitializationSingleton singleton1 = StaticInitializationSingleton.getInstance();
         StaticInitializationSingleton singleton2 = StaticInitializationSingleton.getInstance();

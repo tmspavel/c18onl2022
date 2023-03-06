@@ -1,19 +1,18 @@
-package singleton.otherExamples.billPughAndReflection;
+package by.teachmeskills.patterns.singleton.otherExamples.billPughAndReflection;
 
 public class BillPughSingleton {
+    private static BillPughSingleton INSTANCE;
 
     private BillPughSingleton() {
-        int count = 0;
-        count++;
-        System.out.println(count);
-    }
-
-    private static class SingleTonHelper {
-
-        private static final BillPughSingleton INSTANCE = new BillPughSingleton();
+        if (INSTANCE != null) {
+            throw new UnsupportedOperationException("cannot instance this class");
+        }
     }
 
     public static BillPughSingleton getInstance() {
-        return SingleTonHelper.INSTANCE;
+        if (INSTANCE == null) {
+            INSTANCE = new BillPughSingleton();
+        }
+        return INSTANCE;
     }
 }
