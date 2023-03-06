@@ -1,4 +1,4 @@
-package by.teachmeskills.patterns.singleton;
+package singleton;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class ConnectionPool{
+public class ConnectionPool {
 
     //Singleton instance
     private static volatile ConnectionPool instance;
@@ -66,7 +66,7 @@ public class ConnectionPool{
         try {
             pool.add(DriverManager.getConnection(URL, LOGIN, PASS));
 //            synchronized (LOCK) {
-                currentConnectionNumber.incrementAndGet();
+            currentConnectionNumber.incrementAndGet();
 //            }
         } catch (SQLException e) {
             throw new Exception("New connection wasn't add in the connection pool", e);
@@ -92,7 +92,7 @@ public class ConnectionPool{
         if (connection != null) {
             if (currentConnectionNumber.get() > MIN_CONNECTION_COUNT) {
 //                synchronized (LOCK) {
-                    currentConnectionNumber.decrementAndGet();
+                currentConnectionNumber.decrementAndGet();
 //                }
             }
             try {
