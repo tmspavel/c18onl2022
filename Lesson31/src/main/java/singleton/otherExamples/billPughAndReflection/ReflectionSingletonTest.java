@@ -1,4 +1,4 @@
-package by.teachmeskills.patterns.singleton.otherExamples.billPughAndReflection;
+package singleton.otherExamples.billPughAndReflection;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

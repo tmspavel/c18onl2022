@@ -1,4 +1,4 @@
-package by.teachmeskills.patterns.singleton.otherExamples.billPughAndReflection;
+package singleton.otherExamples.billPughAndReflection;
 
 public class Main {
     public static void main(String[] args) {

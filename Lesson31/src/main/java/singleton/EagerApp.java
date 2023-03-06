@@ -1,6 +1,6 @@
-package by.teachmeskills.patterns.singleton;
+package singleton;
 
-import by.teachmeskills.patterns.singleton.otherExamples.StaticInitializationSingleton;
+import singleton.otherExamples.StaticInitializationSingleton;
 
 public class EagerApp {
     public static void main(String[] args) {
