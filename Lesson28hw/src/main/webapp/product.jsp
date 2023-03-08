@@ -62,7 +62,7 @@
             <input type="hidden" value="${oneProduct.getDescription()}" name="description"/>
             <input type="hidden" value="${oneProduct.getPrice()}" name="price"/>
             <input type="hidden" value="${oneProduct.getCategory_id()}" name="categoryId"/>
-            <button type="submit" value="Купить" name="action" class="buttonAddProduct"><i
+            <button type="submit" value="Buy" name="action" class="buttonAddProduct"><i
                     class="fa fa-cart-plus fa-lg"></i> Купить
             </button>
             <br>

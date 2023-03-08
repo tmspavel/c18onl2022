@@ -1,5 +1,6 @@
 package by.teachmeskills.eshop.model;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -11,7 +12,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
-public class User {
+public class User implements Serializable {
 
     private String name;
     private String password;

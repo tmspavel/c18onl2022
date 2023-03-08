@@ -1,6 +1,8 @@
 package by.teachmeskills.eshop.model;
 
+import java.io.Serializable;
 import java.util.List;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -12,7 +14,8 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @Builder
-public class Category {
+@AllArgsConstructor
+public class Category implements Serializable {
 
     private int id;
     private String name;

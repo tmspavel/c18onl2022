@@ -40,17 +40,17 @@ public class ShoppingCartServlet extends HttpServlet {
         String name = request.getParameter("name");
         String description = request.getParameter("description");
         String priceParameter = request.getParameter("price");
-        int category_id = Integer.parseInt(request.getParameter("categoryId"));
+        int categoryId = Integer.parseInt(request.getParameter("categoryId"));
         BigDecimal price = new BigDecimal(priceParameter);
-        Product product = new Product(id, imageName, name, description, price, category_id);
+        Product product = new Product(id, imageName, name, description, price, categoryId);
         String action = request.getParameter("action");
         switch (action) {
-            case "Купить" -> {
+            case "Buy" -> {
                 cart.addProduct(product);
                 session.setAttribute("myProducts", cart.getProducts());
                 response.sendRedirect("/product?productId=" + product.getId());
             }
-            case "Удалить" -> {
+            case "Delete" -> {
                 cart.deleteProduct(product);
                 session.setAttribute("myProducts", cart.getProducts());
                 response.sendRedirect("/cart");

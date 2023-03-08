@@ -18,17 +18,17 @@ public class JdbcCategoryRepositoryImpl implements CategoryRepository {
     @Override
     public List<Category> getCategories() {
         List<Category> categories = new ArrayList<>();
-        try {
-            Statement statement = connection.createStatement();
+        try (Statement statement = connection.createStatement()) {
             String sql = "select * from categories";
-            ResultSet rs = statement.executeQuery(sql);
-            while (rs.next()) {
-                Category category = Category.builder()
-                                            .id(rs.getInt("id"))
-                                            .name(rs.getString("name"))
-                                            .imageName(rs.getString("imageName"))
-                                            .build();
-                categories.add(category);
+            try (ResultSet rs = statement.executeQuery(sql)) {
+                while (rs.next()) {
+                    Category category = Category.builder()
+                                                .id(rs.getInt("id"))
+                                                .name(rs.getString("name"))
+                                                .imageName(rs.getString("imageName"))
+                                                .build();
+                    categories.add(category);
+                }
             }
         } catch (SQLException e) {
             System.out.println("Unexpected error " + e.getMessage());
