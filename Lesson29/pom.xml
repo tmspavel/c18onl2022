@@ -12,7 +12,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <spotbugs.maven.plugin.version>3.1.12.2</spotbugs.maven.plugin.version>
+        <spotbugs.maven.plugin.version>4.7.3.2</spotbugs.maven.plugin.version>
         <checkstyle.maven.plugin.version>3.1.1</checkstyle.maven.plugin.version>
         <checkstyle.version>8.30</checkstyle.version>
         <pmd.maven.plugin.version>3.14.0</pmd.maven.plugin.version>

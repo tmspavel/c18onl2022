@@ -55,7 +55,7 @@
                     <failOnViolation>false</failOnViolation>
                     <printFailingErrors>true</printFailingErrors>
                     <rulesets>
-                        <ruleset>${basedir}/codequality/pmd-rulesets.xml</ruleset>
+                        <ruleset>${basedir}/codequality/pmd-ruleset.xml</ruleset>
                     </rulesets>
                     <targetJdk>${maven.compiler.target}</targetJdk>
                     <linkXRef>false</linkXRef>
