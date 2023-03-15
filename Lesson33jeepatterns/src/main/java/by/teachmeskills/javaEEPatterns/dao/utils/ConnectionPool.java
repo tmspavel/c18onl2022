@@ -1,6 +1,5 @@
 package by.teachmeskills.javaEEPatterns.dao.utils;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -32,7 +31,7 @@ public class ConnectionPool {
     }
 
     private volatile int currentConnectionNumber = MIN_CONNECTION_COUNT;
-    private BlockingQueue<Connection> pool = new ArrayBlockingQueue<>(MAX_CONNECTION_COUNT, true);
+    private BlockingQueue<ConnectionWrapper> pool = new ArrayBlockingQueue<>(MAX_CONNECTION_COUNT, true);
 
     //Singleton
     public static ConnectionPool getInstance() {
@@ -51,7 +50,7 @@ public class ConnectionPool {
     private ConnectionPool() {
         for (int i = 0; i < MIN_CONNECTION_COUNT; i++) {
             try {
-                pool.add(DriverManager.getConnection(url, login, pass));
+                pool.add(new ConnectionWrapper(DriverManager.getConnection(url, login, pass), this));
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -60,15 +59,15 @@ public class ConnectionPool {
 
     private void openAdditionalConnection() throws Exception {
         try {
-            pool.add(DriverManager.getConnection(url, login, pass));
+            pool.add(new ConnectionWrapper(DriverManager.getConnection(url, login, pass), this));
             currentConnectionNumber++;
         } catch (SQLException e) {
             throw new Exception("New connection wasn't add in the connection pool", e);
         }
     }
 
-    public Connection getConnection() throws Exception {
-        Connection connection;
+    public ConnectionWrapper getConnectionWrapper() throws Exception {
+        ConnectionWrapper connection;
         try {
             if (pool.isEmpty() && currentConnectionNumber < MAX_CONNECTION_COUNT) {
                 openAdditionalConnection();
@@ -82,7 +81,7 @@ public class ConnectionPool {
         return connection;
     }
 
-    private void closeConnection(Connection connection) throws Exception {
+    public void closeConnection(ConnectionWrapper connection) throws Exception {
         if (connection != null) {
             if (currentConnectionNumber > MIN_CONNECTION_COUNT) {
                 currentConnectionNumber--;

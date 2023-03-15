@@ -2,7 +2,6 @@ package by.teachmeskills.javaEEPatterns.utils;
 
 import by.teachmeskills.javaEEPatterns.commands.BaseCommand;
 import by.teachmeskills.javaEEPatterns.commands.HomePageCommandImpl;
-import by.teachmeskills.javaEEPatterns.controller.HomeController;
 import by.teachmeskills.javaEEPatterns.model.Commands;
 import by.teachmeskills.javaEEPatterns.model.RequestParams;
 import java.util.HashMap;
@@ -16,7 +15,7 @@ public class CommandFactory {
     static {
         COMMAND_LIST.put(Commands.HOME_PAGE_COMMAND.getCommand(), new HomePageCommandImpl());
 //        COMMAND_LIST.put(Commands.SIGN_IN_COMMAND.getCommand(), new SignInCommandImpl());
-        COMMAND_LIST.put(Commands.SIGN_IN_COMMAND.getCommand(), new HomeController());
+//        COMMAND_LIST.put(Commands.SIGN_IN_COMMAND.getCommand(), new HomeController());
 
     }
 

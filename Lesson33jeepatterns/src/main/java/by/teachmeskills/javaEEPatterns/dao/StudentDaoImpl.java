@@ -16,7 +16,7 @@ public class StudentDaoImpl implements IStudentDao {
     public List<Student> getAllStudents() {
         List<Student> students;
 
-        try (Connection connection = ConnectionPool.getInstance().getConnection();
+        try (Connection connection = ConnectionPool.getInstance().getConnectionWrapper().getConnection();
                 PreparedStatement preparedStatement = connection.prepareStatement(GET_ALL_STUDENTS)) {
             students = new ArrayList<>();
             ResultSet resultSet = preparedStatement.executeQuery();
