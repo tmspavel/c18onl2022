@@ -1,30 +1,30 @@
-package by.teachmeskills.javaEEPatterns.model;
+package by.teachmeskills.eshop.model;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public enum Commands {
+public enum Command {
 
-    HOME_PAGE_COMMAND("start_page"),
+    LOGOUT_COMMAND("logout"),
     SIGN_IN_COMMAND("sign-in");
 
-    private static final Map<String, Commands> commandMapping = new HashMap<>();
+    private static final Map<String, Command> commandMapping = new HashMap<>();
 
     static {
-        for (Commands type : values()) {
+        for (Command type : values()) {
             commandMapping.put(type.getCommand(), type);
         }
     }
 
-    public static Commands fromString(String type) {
+    public static Command fromString(String type) {
         return Optional.ofNullable(commandMapping.get(type))
                        .orElseThrow(() -> new IllegalStateException("Unknown command type"));
     }
 
     private final String command;
 
-    Commands(String command) {
+    Command(String command) {
         this.command = command;
     }
 

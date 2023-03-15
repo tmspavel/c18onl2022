@@ -2,9 +2,8 @@ package by.teachmeskills.eshop.repository.impl;
 
 import by.teachmeskills.eshop.model.Category;
 import by.teachmeskills.eshop.repository.CategoryRepository;
-import java.sql.Connection;
+import by.teachmeskills.eshop.repository.utils.ConnectionWrapper;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +12,11 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class JdbcCategoryRepositoryImpl implements CategoryRepository {
 
-    private final Connection connection;
-
     @Override
     public List<Category> getCategories() {
         List<Category> categories = new ArrayList<>();
-        try (Statement statement = connection.createStatement()) {
+        try (ConnectionWrapper connectionWrapper = getConnectionWrapper();
+                Statement statement = connectionWrapper.getConnection().createStatement()) {
             String sql = "select * from categories";
             try (ResultSet rs = statement.executeQuery(sql)) {
                 while (rs.next()) {
@@ -30,8 +28,8 @@ public class JdbcCategoryRepositoryImpl implements CategoryRepository {
                     categories.add(category);
                 }
             }
-        } catch (SQLException e) {
-            System.out.println("Unexpected error " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
         return categories;
     }

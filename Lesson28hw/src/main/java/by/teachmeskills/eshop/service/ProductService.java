@@ -2,13 +2,12 @@ package by.teachmeskills.eshop.service;
 
 import by.teachmeskills.eshop.model.Product;
 import by.teachmeskills.eshop.repository.ProductRepository;
+import by.teachmeskills.eshop.repository.impl.ProductRepositoryImpl;
 import java.util.List;
-import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
 public class ProductService {
 
-    private final ProductRepository productRepository;
+    private final ProductRepository productRepository = new ProductRepositoryImpl();
 
     public List<Product> getProducts() {
         return productRepository.getProducts();

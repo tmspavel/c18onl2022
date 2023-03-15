@@ -5,7 +5,7 @@ import static by.teachmeskills.eshop.utils.Utils.ADMIN_LOGIN;
 import static by.teachmeskills.eshop.utils.Utils.ADMIN_PASSWORD;
 import static by.teachmeskills.eshop.utils.Utils.isUserLogIn;
 
-import by.teachmeskills.eshop.exceptions.RequestParamNullException;
+import by.teachmeskills.eshop.exceptions.ValidationException;
 import by.teachmeskills.eshop.model.Cart;
 import by.teachmeskills.eshop.model.Category;
 import by.teachmeskills.eshop.model.User;
@@ -53,7 +53,7 @@ public class HomeServlet extends HttpServlet {
             request.getSession().setAttribute("username", user);
             checkReceivedUser(user, request, response);
 
-        } catch (RequestParamNullException e) {
+        } catch (ValidationException e) {
             System.out.println(e.getMessage());
         }
     }

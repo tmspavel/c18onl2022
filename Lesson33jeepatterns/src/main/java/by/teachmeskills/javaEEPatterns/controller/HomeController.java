@@ -1,16 +1,19 @@
 //package by.teachmeskills.javaEEPatterns.controller;
 //
 //import by.teachmeskills.javaEEPatterns.commands.BaseCommand;
+//import by.teachmeskills.javaEEPatterns.domain.User;
 //import by.teachmeskills.javaEEPatterns.exceptions.CommandException;
 //import java.io.IOException;
 //import java.util.List;
 //import javax.servlet.ServletException;
 //import javax.servlet.http.HttpServletRequest;
 //import javax.servlet.http.HttpServletResponse;
+//import lombok.AllArgsConstructor;
 //
+//@AllArgsConstructor
 //public class HomeController implements BaseCommand {
 //
-//    ProductService productService = new ProductService(new ProductRepositoryImpl());
+//    private ProductService productService;
 //
 //    @Override
 //    public String execute(HttpServletRequest request) throws CommandException {

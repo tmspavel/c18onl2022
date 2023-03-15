@@ -1,10 +1,5 @@
 package by.teachmeskills.eshop.listener;
 
-import by.teachmeskills.eshop.repository.CategoryRepository;
-import by.teachmeskills.eshop.repository.impl.JdbcCategoryRepositoryImpl;
-import by.teachmeskills.eshop.repository.impl.ProductRepositoryImpl;
-import by.teachmeskills.eshop.service.CategoryService;
-import by.teachmeskills.eshop.service.ProductService;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.servlet.ServletContextEvent;
@@ -16,12 +11,10 @@ public class InitializationContextListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        ProductService productService = new ProductService(new ProductRepositoryImpl());
-        sce.getServletContext().setAttribute("productService", productService);
 
-        CategoryRepository jdbcCategoryRepository = new JdbcCategoryRepositoryImpl(getConnection(sce));
-        CategoryService categoryService = new CategoryService(jdbcCategoryRepository);
-        sce.getServletContext().setAttribute("categoryService", categoryService);
+//        CategoryRepository jdbcCategoryRepository = new JdbcCategoryRepositoryImpl(getConnection(sce));
+//        CategoryService categoryService = new CategoryService(jdbcCategoryRepository);
+//        sce.getServletContext().setAttribute("categoryService", categoryService);
     }
 
     private Connection getConnection(ServletContextEvent sce) {
