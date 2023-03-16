@@ -37,8 +37,8 @@ public class ApplicationServlet extends HttpServlet {
             System.out.println(e.getMessage());
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            //логируем сообщение а потом должны выдать клиенту алерт Unexpected error по закрытию
-//            попадаем на логин форму
+//            логируем сообщение а потом должны перенаправить на страницу с ошибкой("Извините что-то поломалось!!!"),
+//            также можно конверсейшен в URL запроса поместить
             request.getRequestDispatcher(PagesPath.SIGN_IN_PAGE.getPath()).forward(request, response);
         }
     }
