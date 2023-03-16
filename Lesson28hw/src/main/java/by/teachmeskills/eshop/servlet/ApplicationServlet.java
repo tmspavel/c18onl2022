@@ -38,6 +38,7 @@ public class ApplicationServlet extends HttpServlet {
         } catch (Exception e) {
             System.out.println(e.getMessage());
 //            логируем сообщение а потом должны перенаправить на страницу с ошибкой("Извините что-то поломалось!!!"),
+            //https://blog.hubspot.com/marketing/http-500-internal-server-error
 //            также можно конверсейшен в URL запроса поместить
             request.getRequestDispatcher(PagesPath.SIGN_IN_PAGE.getPath()).forward(request, response);
         }
