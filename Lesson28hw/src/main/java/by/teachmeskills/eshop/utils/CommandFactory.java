@@ -4,22 +4,16 @@ import by.teachmeskills.eshop.controller.BaseController;
 import by.teachmeskills.eshop.controller.HomeController;
 import by.teachmeskills.eshop.controller.LogoutController;
 import by.teachmeskills.eshop.model.Command;
-import by.teachmeskills.eshop.model.RequestParam;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Supplier;
-import javax.servlet.http.HttpServletRequest;
 
 public class CommandFactory {
 
     private static final Map<String, BaseController> COMMANDS = new ConcurrentHashMap<>();
 
-    public static BaseController defineCommand(HttpServletRequest request) {
-        String commandKey = request.getParameter(RequestParam.COMMAND.getValue());
-        if (commandKey == null || commandKey.isEmpty()) {
-            commandKey = Command.SIGN_IN_COMMAND.getCommand();
-        }
-        return putIfAbsent(commandKey, createController(Command.fromString(commandKey)));
+    public static BaseController defineCommand(Command command) {
+        return putIfAbsent(command.getCommand(), createController(command));
     }
 
     private static Supplier<BaseController> createController(Command command) {

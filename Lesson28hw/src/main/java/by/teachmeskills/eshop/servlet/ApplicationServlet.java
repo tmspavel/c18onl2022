@@ -2,7 +2,9 @@ package by.teachmeskills.eshop.servlet;
 
 import by.teachmeskills.eshop.controller.BaseController;
 import by.teachmeskills.eshop.exceptions.ValidationException;
+import by.teachmeskills.eshop.model.Command;
 import by.teachmeskills.eshop.model.PagesPath;
+import by.teachmeskills.eshop.model.RequestParam;
 import by.teachmeskills.eshop.utils.CommandFactory;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -27,7 +29,11 @@ public class ApplicationServlet extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        BaseController baseController = CommandFactory.defineCommand(request);
+        String commandKey = request.getParameter(RequestParam.COMMAND.getValue());
+        if (commandKey == null || commandKey.isEmpty()) {
+            commandKey = Command.SIGN_IN_COMMAND.getCommand();
+        }
+        BaseController baseController = CommandFactory.defineCommand(Command.fromString(commandKey));
         try {
             String path = baseController.execute(request);
             RequestDispatcher dispatcher = request.getRequestDispatcher(path);
