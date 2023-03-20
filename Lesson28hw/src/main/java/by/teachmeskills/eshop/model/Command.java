@@ -7,6 +7,8 @@ import java.util.Optional;
 public enum Command {
 
     LOGOUT_COMMAND("logout"),
+    PRODUCT_COMMAND("product"),
+    HOME_COMMAND("home"),
     SIGN_IN_COMMAND("sign-in");
 
     private static final Map<String, Command> commandMapping = new HashMap<>();
@@ -20,6 +22,12 @@ public enum Command {
     public static Command fromString(String type) {
         return Optional.ofNullable(commandMapping.get(type))
                        .orElseThrow(() -> new IllegalStateException("Unknown command type"));
+//        for (Command value : values()) {
+//            if (value.command.equals(type)) {
+//                return value;
+//            }
+//        }
+//        throw new IllegalStateException("Unknown command type");
     }
 
     private final String command;

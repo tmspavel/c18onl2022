@@ -1,6 +1,6 @@
 package by.teachmeskills.eshop.servlet;
 
-import static by.teachmeskills.eshop.utils.HttpRequestParamValidator.validateParamNotNull;
+import static by.teachmeskills.eshop.utils.HttpRequestParamValidator.validateParam;
 import static by.teachmeskills.eshop.utils.Utils.ADMIN_LOGIN;
 import static by.teachmeskills.eshop.utils.Utils.ADMIN_PASSWORD;
 import static by.teachmeskills.eshop.utils.Utils.isUserLogIn;
@@ -10,7 +10,7 @@ import by.teachmeskills.eshop.model.Cart;
 import by.teachmeskills.eshop.model.Category;
 import by.teachmeskills.eshop.model.User;
 import by.teachmeskills.eshop.service.CategoryService;
-import by.teachmeskills.eshop.service.CategoryServiceAware;
+import by.teachmeskills.eshop.service.CategoryServiceImpl;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -24,12 +24,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/home")
 public class HomeServlet extends HttpServlet {
 
-    private CategoryServiceAware categoryService;
+    private CategoryService categoryService;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        categoryService = (CategoryService) config.getServletContext().getAttribute("categoryService");
+        categoryService = (CategoryServiceImpl) config.getServletContext().getAttribute("categoryService");
     }
 
     @Override
@@ -45,14 +45,13 @@ public class HomeServlet extends HttpServlet {
         User user;
         Cart cart;
         try {
-            validateParamNotNull(login);
-            validateParamNotNull(pass);
+            validateParam(login);
+            validateParam(pass);
             user = new User(ADMIN_LOGIN, ADMIN_PASSWORD);
             cart = new Cart();
             request.getSession().setAttribute("cart", cart);
             request.getSession().setAttribute("username", user);
             checkReceivedUser(user, request, response);
-
         } catch (ValidationException e) {
             System.out.println(e.getMessage());
         }

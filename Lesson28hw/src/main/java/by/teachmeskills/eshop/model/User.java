@@ -14,6 +14,8 @@ import lombok.ToString;
 @AllArgsConstructor
 public class User implements Serializable {
 
+    @Value
     private String name;
+
     private String password;
 }

@@ -1,18 +1,19 @@
 package by.teachmeskills.eshop.model;
 
 import java.math.BigDecimal;
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.Value;
 
 @Setter
 @Getter
 @EqualsAndHashCode(of = "id")
-@AllArgsConstructor
 @ToString
-public class Product {
+@Value(staticConstructor = "of")
+public class MyProduct {
+
     private int id;
     private String imageName;
     private String name;

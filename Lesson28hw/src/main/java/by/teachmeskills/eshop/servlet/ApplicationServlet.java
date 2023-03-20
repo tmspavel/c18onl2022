@@ -1,11 +1,11 @@
 package by.teachmeskills.eshop.servlet;
 
-import by.teachmeskills.eshop.controller.BaseController;
+import by.teachmeskills.eshop.controller.BaseCommandController;
 import by.teachmeskills.eshop.exceptions.ValidationException;
 import by.teachmeskills.eshop.model.Command;
 import by.teachmeskills.eshop.model.PagesPath;
 import by.teachmeskills.eshop.model.RequestParam;
-import by.teachmeskills.eshop.utils.CommandFactory;
+import by.teachmeskills.eshop.utils.CommandControllerFactory;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,10 +33,10 @@ public class ApplicationServlet extends HttpServlet {
         if (commandKey == null || commandKey.isEmpty()) {
             commandKey = Command.SIGN_IN_COMMAND.getCommand();
         }
-        BaseController baseController = CommandFactory.defineCommand(Command.fromString(commandKey));
         try {
-            String path = baseController.execute(request);
-            RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+            BaseCommandController baseController = CommandControllerFactory.defineCommand(Command.fromString(commandKey));
+            PagesPath pagesPath = baseController.execute(request);
+            RequestDispatcher dispatcher = request.getRequestDispatcher(pagesPath.getPath());
             dispatcher.forward(request, response);
         } catch (ValidationException e) {
             //валидационная ошибка

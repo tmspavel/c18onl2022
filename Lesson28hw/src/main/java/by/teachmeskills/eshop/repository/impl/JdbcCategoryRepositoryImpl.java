@@ -15,7 +15,7 @@ public class JdbcCategoryRepositoryImpl implements CategoryRepository {
     @Override
     public List<Category> getCategories() {
         List<Category> categories = new ArrayList<>();
-        try (ConnectionWrapper connectionWrapper = getConnectionWrapper();
+        try (ConnectionWrapper connectionWrapper = CONNECTION_POOL.getConnectionWrapper();
                 Statement statement = connectionWrapper.getConnection().createStatement()) {
             String sql = "select * from categories";
             try (ResultSet rs = statement.executeQuery(sql)) {

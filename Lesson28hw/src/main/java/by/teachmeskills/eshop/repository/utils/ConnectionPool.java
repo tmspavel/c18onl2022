@@ -6,8 +6,12 @@ import java.util.ResourceBundle;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class ConnectionPool {
+
+//    private final static Logger log = LoggerFactory.getLogger(ConnectionPool.class);
 
     //Singleton instance
     private static volatile ConnectionPool instance;
@@ -62,7 +66,8 @@ public class ConnectionPool {
             pool.add(new ConnectionWrapper(DriverManager.getConnection(url, login, pass), this));
             currentConnectionNumber.incrementAndGet();
         } catch (SQLException e) {
-            throw new Exception("New connection wasn't add in the connection pool", e);
+            log.error("Can not open connection", e);
+            //throw new Exception("New connection wasn't add in the connection pool", e);
         }
     }
 
@@ -90,6 +95,18 @@ public class ConnectionPool {
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 throw new Exception("Connection wasn't returned into pool properly");
+            }
+        }
+    }
+
+    public void closeAllConnection() {
+        for (ConnectionWrapper connectionWrapper : pool) {
+            try {
+                if (connectionWrapper != null) {
+                    connectionWrapper.getConnection().close();
+                }
+            } catch (Exception e) {
+                System.out.println("Some connection cannot be closed: " + e);
             }
         }
     }
