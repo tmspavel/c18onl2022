@@ -1,14 +1,28 @@
 package com.example.spring.model;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.Getter;
+import org.springframework.beans.factory.annotation.Value;
 
+@Getter
 public class SpringHelloWorld {
+    //констурктора !!! самый лучший сбособ
 
-    @Autowired
-    private String message;
+    private final String message;
 
-    @Autowired
-    private String test;
+    private final String test;
+
+    @Value("${hello.world}")
+    private String helloWorld;
+
+
+    public SpringHelloWorld(String message, String test) {
+        this.message = message;
+        this.test = test;
+    }
+
+    String displayHelloWorld() {
+        return message;
+    }
 
     public String getHelloMessage() {
         return message;

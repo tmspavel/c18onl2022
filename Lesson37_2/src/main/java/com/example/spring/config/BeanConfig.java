@@ -9,14 +9,14 @@ import org.springframework.core.env.Environment;
 
 @Configuration
 @PropertySource("classpath:application.properties")
-public class SpringHelloWoldConfig {
+public class BeanConfig {
 
     @Autowired
     private Environment env;
 
     @Bean
-    public SpringHelloWorld springHelloWorld(String test) {
-        return new SpringHelloWorld();
+    public SpringHelloWorld springHelloWorld() {
+        return new SpringHelloWorld(helloMessage(), test());
     }
 
     @Bean(name = "message")
