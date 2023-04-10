@@ -5,7 +5,6 @@ import by.teachmeskills.eshop.exceptions.ValidationException;
 import by.teachmeskills.eshop.model.Command;
 import by.teachmeskills.eshop.model.PagesPath;
 import by.teachmeskills.eshop.model.RequestParam;
-import by.teachmeskills.eshop.utils.CommandControllerFactory;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @WebServlet("/eshop")
 public class ApplicationServlet extends HttpServlet {
@@ -34,7 +34,10 @@ public class ApplicationServlet extends HttpServlet {
             commandKey = Command.SIGN_IN_COMMAND.getCommand();
         }
         try {
-            BaseCommandController baseController = CommandControllerFactory.defineCommand(Command.fromString(commandKey));
+            AnnotationConfigApplicationContext appContext = (AnnotationConfigApplicationContext) request.getServletContext().getAttribute("appContext");
+            BaseCommandController baseController = (BaseCommandController) appContext.getBean(commandKey);
+
+//            BaseCommandController baseController = CommandControllerFactory.defineCommand(Command.fromString(commandKey));
             PagesPath pagesPath = baseController.execute(request);
             RequestDispatcher dispatcher = request.getRequestDispatcher(pagesPath.getPath());
             dispatcher.forward(request, response);

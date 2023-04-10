@@ -7,15 +7,15 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Repository;
 
-@AllArgsConstructor
-public class JdbcCategoryRepositoryImpl implements CategoryRepository {
+@Repository
+public class JdbcCategoryRepositoryImpl extends BaseRepository implements CategoryRepository {
 
     @Override
     public List<Category> getCategories() {
         List<Category> categories = new ArrayList<>();
-        try (ConnectionWrapper connectionWrapper = CONNECTION_POOL.getConnectionWrapper();
+        try (ConnectionWrapper connectionWrapper = connectionPool.getConnectionWrapper();
                 Statement statement = connectionWrapper.getConnection().createStatement()) {
             String sql = "select * from categories";
             try (ResultSet rs = statement.executeQuery(sql)) {

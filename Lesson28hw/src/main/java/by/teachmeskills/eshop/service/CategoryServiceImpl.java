@@ -1,16 +1,17 @@
 package by.teachmeskills.eshop.service;
 
 import by.teachmeskills.eshop.model.Category;
-import by.teachmeskills.eshop.model.Inject;
 import by.teachmeskills.eshop.repository.CategoryRepository;
 import java.util.List;
-import lombok.Setter;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-@Setter
+//@Setter
+@Service
+@RequiredArgsConstructor
 public class CategoryServiceImpl implements CategoryService {
 
-    @Inject
-    private CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
 
     public List<Category> getCategories() {
         return categoryRepository.getCategories();

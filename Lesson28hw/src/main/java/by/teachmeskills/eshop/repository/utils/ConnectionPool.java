@@ -7,14 +7,16 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 @Slf4j
+@Component
 public class ConnectionPool {
 
 //    private final static Logger log = LoggerFactory.getLogger(ConnectionPool.class);
 
     //Singleton instance
-    private static volatile ConnectionPool instance;
+//    private static volatile ConnectionPool instance;
 
     //Configuration properties
     private static final String DB_PROPERTY_FILE = "application";
@@ -39,16 +41,16 @@ public class ConnectionPool {
     private final BlockingQueue<ConnectionWrapper> pool = new ArrayBlockingQueue<>(MAX_CONNECTION_COUNT, true);
 
     //Singleton
-    public static ConnectionPool getInstance() {
-        if (instance == null) {
-            synchronized (ConnectionPool.class) {
-                if (instance == null) {
-                    instance = new ConnectionPool();
-                }
-            }
-        }
-        return instance;
-    }
+//    public static ConnectionPool getInstance() {
+//        if (instance == null) {
+//            synchronized (ConnectionPool.class) {
+//                if (instance == null) {
+//                    instance = new ConnectionPool();
+//                }
+//            }
+//        }
+//        return instance;
+//    }
 
     //Add new connection to queue in constructor
     private ConnectionPool() {

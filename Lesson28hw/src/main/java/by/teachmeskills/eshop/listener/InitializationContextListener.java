@@ -1,8 +1,7 @@
 package by.teachmeskills.eshop.listener;
 
-import by.teachmeskills.eshop.model.Command;
+import by.teachmeskills.eshop.config.BeanConfig;
 import by.teachmeskills.eshop.repository.utils.ConnectionPool;
-import by.teachmeskills.eshop.utils.CommandControllerFactory;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.servlet.ServletContextEvent;
@@ -10,6 +9,8 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @Slf4j
 @WebListener
@@ -19,9 +20,12 @@ public class InitializationContextListener implements ServletContextListener {
     @SneakyThrows
     public void contextInitialized(ServletContextEvent sce) {
         log.info("InitializationContextListener start");
-        for (Command command : Command.values()) {
-            CommandControllerFactory.defineCommand(command);
-        }
+//        for (Command command : Command.values()) {
+//            CommandControllerFactory.defineCommand(command);
+//        }
+        //логика
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(BeanConfig.class);
+        sce.getServletContext().setAttribute("appContext", ctx);
         //TODO: for example
 //        CategoryRepository jdbcCategoryRepository = new JdbcCategoryRepositoryImpl(getConnection(sce));
 //        CategoryService categoryService = new CategoryService(jdbcCategoryRepository);
@@ -31,7 +35,9 @@ public class InitializationContextListener implements ServletContextListener {
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         log.info("InitializationContextListener Destroyed");
-        ConnectionPool.getInstance().closeAllConnection();
+        AnnotationConfigApplicationContext appContext = (AnnotationConfigApplicationContext) sce.getServletContext().getAttribute("appContext");
+        ConnectionPool connectionPool = appContext.getBean(ConnectionPool.class);
+        connectionPool.closeAllConnection();
     }
 
     private Connection getConnection(ServletContextEvent sce) {
