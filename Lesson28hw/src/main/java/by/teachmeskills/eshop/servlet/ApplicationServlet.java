@@ -36,6 +36,7 @@ public class ApplicationServlet extends HttpServlet {
         try {
             AnnotationConfigApplicationContext appContext = (AnnotationConfigApplicationContext) request.getServletContext().getAttribute("appContext");
             BaseCommandController baseController = (BaseCommandController) appContext.getBean(commandKey);
+            //сделать проверку или null или исключение
 
 //            BaseCommandController baseController = CommandControllerFactory.defineCommand(Command.fromString(commandKey));
             PagesPath pagesPath = baseController.execute(request);

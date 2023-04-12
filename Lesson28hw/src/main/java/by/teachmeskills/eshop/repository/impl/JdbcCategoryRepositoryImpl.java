@@ -12,13 +12,15 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class JdbcCategoryRepositoryImpl extends BaseRepository implements CategoryRepository {
 
+    private static final String SELECT_FROM_CATEGORIES = "select * from categories";
+
     @Override
     public List<Category> getCategories() {
         List<Category> categories = new ArrayList<>();
         try (ConnectionWrapper connectionWrapper = connectionPool.getConnectionWrapper();
                 Statement statement = connectionWrapper.getConnection().createStatement()) {
-            String sql = "select * from categories";
-            try (ResultSet rs = statement.executeQuery(sql)) {
+
+            try (ResultSet rs = statement.executeQuery(SELECT_FROM_CATEGORIES)) {
                 while (rs.next()) {
                     Category category = Category.builder()
                                                 .id(rs.getInt("id"))
