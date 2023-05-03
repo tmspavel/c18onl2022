@@ -1,8 +1,13 @@
 package by.teachmeskills.springbootexample.controllers;
 
+import static by.teachmeskills.springbootexample.model.EshopConstants.USER;
+import static by.teachmeskills.springbootexample.model.PagesPathEnum.SIGN_IN_PAGE;
+
 import by.teachmeskills.springbootexample.entities.User;
 import by.teachmeskills.springbootexample.exceptions.AuthorizationException;
 import by.teachmeskills.springbootexample.services.UserService;
+import java.util.Objects;
+import javax.validation.Valid;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,16 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
-import java.util.Objects;
-
-import static by.teachmeskills.springbootexample.model.EshopConstants.USER;
-import static by.teachmeskills.springbootexample.model.PagesPathEnum.SIGN_IN_PAGE;
-
 @RestController
 @SessionAttributes({USER})
 @RequestMapping("/login")
 public class AuthController {
+
     private final UserService userService;
 
     public AuthController(UserService userService) {
@@ -53,7 +53,7 @@ public class AuthController {
     private void populateError(String field, ModelAndView modelAndView, BindingResult bindingResult) {
         if (bindingResult.hasFieldErrors(field)) {
             modelAndView.addObject(field + "Error", Objects.requireNonNull(bindingResult.getFieldError(field))
-                    .getDefaultMessage());
+                                                           .getDefaultMessage());
         }
     }
 }
