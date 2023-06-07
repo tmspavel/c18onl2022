@@ -154,5 +154,6 @@
         <module>Lesson48soapclient</module>
         <module>Lesson49</module>
         <module>Lesson53jwt</module>
+        <module>Lesson53security</module>
     </modules>
 </project>
